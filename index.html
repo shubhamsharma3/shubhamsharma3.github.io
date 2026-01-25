@@ -1,1679 +1,547 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Shubham Sharma — Portfolio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <title>Shubham Sharma — Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/experience.css" />
+  <link rel="stylesheet" href="css/capabilities.css" />
+  <link rel="stylesheet" href="css/capabilities-static.css" />
+  <link rel="stylesheet" href="css/work-exp.css" />
+  <link rel="stylesheet" href="css/works.css" />
+  <link rel="stylesheet" href="css/speaking.css">
+  <link rel="stylesheet" href="css/case-study.css">
+
+  <!-- GSAP -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+    defer
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    defer
+  ></script>
+
+  <!-- JS -->
+  <script src="js/gsap-init.js" defer></script>
+  <script src="js/hero-animations.js" defer></script>
+  <script src="js/capabilities-tab.js" defer></script>
+  <script src="js/experience-timeline.js" defer></script>
+  <script src="js/experience-toggle.js" defer></script>
+  <script src="js/work-render.js" defer></script>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-
-
-
-<style>
-
-html {
-  width: 100%;
-}
-
-body {
-  width: 100%;
-  overflow-x: clip; /* modern, sticky-safe */
-}
-:root{
-  --bg:#edf2ee;
-  --primary:#0b3a2a;
-  --text:#141414;
-  --muted:#5b6b63;
-}
-
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  padding-top: 72px; /* equal to nav height */
-}
-
-/* NAV */
-nav {
-  position: fixed;        /* stays on top */
-  top: 0;
-  left: 0;
-  width: 100%;
-
-  z-index: 1000;          /* above all sections */
-  background: var(--bg); /* same as hero background */
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 18px 56px;
-
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-  backdrop-filter: blur(6px); /* subtle premium feel */
-}
-
-nav .logo {
-  font-weight: 800;
-}
-
-nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 999px;
-  transition: background 0.25s ease;
-}
-
-/* subtle hover */
-nav a:hover {
-  background: rgba(11, 58, 42, 0.08);
-  color: var(--text);
-}
-
-/* active section */
-nav a.active {
-  background: var(--primary);
-  color: #ffffff;
-}
-
-.actions {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-}
-
-.actions a {
-  text-decoration: none;
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* CTA button */
-.actions a.btn {
-  background: var(--primary);
-  color: #ffffff;      /* ✅ NOW IT WILL WORK */
-  padding: 9px 18px;
-  border-radius: 9px;
-  font-size: 14px;
-}
-
-.actions a.btn:hover {
-  background: #0f5a41;  /* ⬅ lighter green */
-  color: #ffffff;       /* stays white */
-}
-
-/* HERO */
-.hero {
-  display: grid;
-  grid-template-columns: 0.9fr 1.10fr;
-  align-items: center;
-  gap: 10px;
-
-  height: calc(100vh - 72px); /* nav height accounted */
-  padding: 40px 56px;
-
-  overflow: hidden;
-}
-
-
-.hero-left small{
-  color:var(--muted);
-  font-size:15px;
-}
-
-.hero-left h1{
-  font-size:64px;
-  line-height:1.07;
-  margin:20px 0;
-  color:var(--primary);
-}
-
-.hero-left p{
-  font-size:17px;
-  max-width:460px;
-  color:#2e3d36;
-}
-
-.hero-left a{
-  display:inline-block;
-  margin-top:22px;
-  color:var(--primary);
-  font-weight:600;
-  text-decoration:none;
-}
-
-/* RIGHT */
-.hero-right{
-  position:relative;
-}
-
-/* SHAPES */
-.shape{
-  position:absolute;
-  width:460px;
-  height:110px;
-  background:#0b3a2a;
-  border-radius:120px;
-  opacity:1;
-}
-
-.shape.one{
-  top:185px;
-  left:150px;
-  transform:rotate(-30deg);
-}
-
-.shape.two{
-  bottom:218px;
-  right:138px;
-  transform:rotate(0deg);
-}
-
-.shape.three{
-  top:365px;
-  left:200px;
-  transform:rotate(-30deg);
-}
-
-/* IMAGE */
-.hero-image{
-  position:relative;
-  z-index:2;
-  display:flex;
-  justify-content:center;
-}
-
-.hero-image img{
-  width:110%;
-  max-width:400px;          /* ⬅ enlarged */
-  height:auto;
-  transform: translateY(12px);
-  filter: drop-shadow(0 14px 32px rgba(0,0,0,0.08));
-}
-
-/* METRICS */
-.metric {
-  position: absolute;
-  font-size: 20px;
-  color: var(--primary);
-  max-width: 120px;
-}
-
-.metric.left {
-  left: 0;
-  bottom: 45%;
-}
-
-.metric.right {
-  right: 0;
-  bottom: 38%;
-  text-align: right;
-}
-
-
-.metric strong{
-  display:block;
-  font-size:40px;
-}
-
-/* Experience */
-.experience {
-  height: 100vh;          /* ⬅ owns viewport */
-  padding: 0 56px;        /* remove vertical padding */
-  background: #ffffff;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.experience-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;           /* ⬅ fill parent */
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 250px;
-  align-items: center;
-}
-
-/* LEFT TEXT */
-.experience-text h2 {
-  font-size: 42px;
-  margin-bottom: 24px;
-  color: var(--text);
-}
-
-.experience-text p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--muted);
-  margin-bottom: 16px;
-  text-align: justify;
-}
-
-.experience-text .highlight {
-  color: var(--text);
-  font-weight: 500;
-}
-
-/* RIGHT LOGO WALL */
-.logo-wall {
-  display: grid;
-  grid-template-columns: 180px 180px;  /* ⬅ column width */
-  gap: 15px;
-
-  height: 100%;
-  padding: 0;
-  overflow: hidden;
-
-  justify-content: start;
-  align-items: flex-start;
-}
-
-
-.logo-column {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.logo-column img {
-  width: 100%;
-  max-width: 160px;   /* keeps logo proportions */
-  margin: 0 auto;
-  opacity: 0.95;
-  
-}
-
-.logo-column img:hover {
-  opacity: 0.9;
-}
-
-/* ANIMATIONS */
-.move-up {
-  animation: scrollUp 22s linear infinite;
-}
-
-.move-down {
-  animation: scrollDown 22s linear infinite;
-}
-
-@keyframes scrollUp {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-  from { transform: translateY(-50%); }
-  to   { transform: translateY(0); }
-}
-/* =========================
-   LOGO CARDS
-   ========================= */
-
-.logo-card {
-  width: 180px;
-  height: 180px;
-
-  background: #f4f6f5;                 /* light gray */
-  border-radius: 16px;                 /* rounded corners */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-}
-
-/* LOGO IMAGE */
-.logo-card img {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-
-
-  opacity: 0.95;
-
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* HOVER (optional but recommended) */
-.logo-card:hover img {
-  filter: grayscale(0%);
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-
-
-
-
-
-/* Capabilities Page */
-
-.capabilities {
-  background: #e9f0ec;
-  padding: 10px 56px;
-}
-
-.cap-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 80px;
-  align-items: center;
-}
-
-/* LEFT */
-.cap-text h2 {
-  font-size: 44px;
-  line-height: 1.15;
-  margin-bottom: 24px;
-}
-
-.cap-text h2 span {
-  color: var(--primary);
-}
-
-.cap-text p {
-  font-size: 17px;
-  line-height: 1.65;
-  color: var(--muted);
-  max-width: 520px;
-  margin-bottom: 32px;
-}
-
-.cap-menu {
-  list-style: none;
-  padding-left: 32px; 
-  
-  margin: 0;
-}
-
-.cap-menu li {
-  position: relative;
-  padding-left: 24px;     /* space for indicator */
-  margin-bottom: 22px;    /* ⬅ increased spacing */
-  color: #8a8f8c;
-  transition: color 0.25s ease;
-}
-
-
-.cap-menu li.active {
-  color: var(--primary);
-  font-weight: 600;
-}
-
-
-
-
-.cap-menu li::after {
-  content: "";
-  position: absolute;
-  left: -20px;               /* 20px left of text */
-  top: 50%;
-  transform: translateY(-50%);
-  width: 2px;
-  height: 26px;              /* ⬅ FIXED height */
-  background: var(--primary);
-  border-radius: 2px;
-
-  opacity: 0;                /* hidden by default */
-  transition: opacity 0.2s ease;
-}
-
-
-
-.cap-menu li.active::after {
-  height: 35px;            /* visible line */
-  opacity: 1;
-}
-
-
-/* RIGHT */
-.cap-stack {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-.stack-row {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.stack-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 500;
-  text-align: center;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.05);
-}
-
-
-.stack-group {
-  display: none;
-  grid-template-columns: repeat(2, minmax(140px, 1fr));
-  gap: 18px;
-
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.stack-group.active {
-  display: grid;
-  animation: fadeUp 0.4s ease forwards;
-}
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-
-.stack-group img {
-  background: #fff;
-  padding: 18px;
-  border-radius: 12px;
-  width: 100%;
-  max-height: 56px;
-  object-fit: contain;
-
-  filter: grayscale(100%);
-  opacity: 0.75;
-
-  transition: all 0.3s ease;
-}
-
-.stack-group img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-
-
-
-
-/* capabilities static page */
-
-.capabilities-static {
-  background: #ffffff;
-  padding: 80px 56px;
-}
-
-.caps-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.caps-label {
-  display: inline-block;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  color: #6b8f7d;
-  margin-bottom: 36px;
-}
-
-.caps-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 64px;
-}
-
-.caps-grid ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.caps-grid li {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #1a1a1a;
-  margin-bottom: 14px;
-  position: relative;
-  padding-left: 18px;
-}
-
-.caps-grid li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  top: 0;
-  color: #1a1a1a;
-}
-
-
-
-
-
-
-
-
-
-
-/* =========================
-   WORK EXPERIENCE SECTION
-   ========================= */
-
-
-.work-exp {
-  display: grid;
-  grid-template-columns: 38% 62%;
-  padding: 120px;
-  min-height: 100vh;
-  background: #ffffff;
-  position: relative;
-}
-
-.work-left {
-  position: sticky;
-  top: 120px;
-  align-self: flex-start;
-}
-
-.work-left h2 {
-  font-size: 56px;
-  font-weight: 600;
-  line-height: 1.05;
-  margin: 0;
-}
-
-/* =========================
-   RIGHT COLUMN
-   ========================= */
-
-.work-right {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* =========================
-   EXPERIENCE ITEM
-   ========================= */
-
-.exp-item {
-  display: grid;
-  grid-template-columns: 60px auto;
-  align-items: flex-start;
-}
-
-/* =========================
-   TIMELINE COLUMN
-   ========================= */
-
-.timeline-col {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-}
-
-/* DOT */
-
-/* DOT BASE */
-.exp-dot {
-  width: 20px;
-  height: 20px;
-  background: #0b3a2a;
-  border-radius: 50%;
-  position: relative;
-  z-index: 2;
-  transform: scale(0.85);
-  margin-top: 10px; /* ⬅ push dot down */
-}
-
-.exp-dot::before {
-  content: "";
-  position: absolute;
-  inset: -7px;
-  border-radius: 50%;
-  border: 1.2px solid rgba(11, 58, 42, 0.35);
-}
-
-
-/* ACTIVE DOT */
-.exp-item.active .exp-dot {
-  transform: scale(1);
-  box-shadow: 0 0 0 8px rgba(11, 58, 42, 0.12);
-}
-
-.exp-item.active .exp-dot::before {
-  border-color: rgba(11, 58, 42, 0.7);
-}
-
-
-
-
-
-/* =========================
-   LINE (SCROLL ANIMATED)
-   ========================= */
-
-.exp-line {
-  margin-top: 10px;
-  width: 1px;
-
-  /* height will be injected by JS */
-  height: 0;
-
-  background-image: repeating-linear-gradient(
-    to bottom,
-    rgba(11, 58, 42, 0.45),
-    rgba(11, 58, 42, 0.45) 3px,
-    transparent 3px,
-    transparent 8px
-  );
-
-  transform: scaleY(0);
-  transform-origin: top;
-}
-
-
-/* =========================
-   CONTENT
-   ========================= */
-
-.exp-content {
-  max-width: 520px;
-}
-
-.exp-content h3 {
-  font-size: 30px;
-  margin: 0 0 8px;
-}
-
-.meta {
-  font-size: 14px;
-  color: #777;
-  margin-bottom: 22px;
-}
-
-.exp-content ul {
-  padding-left: 18px;
-  margin: 0;
-}
-
-.exp-content li {
-  margin-bottom: 12px;
-  line-height: 1.55;
-}
-
-/* =========================
-   READ MORE
-   ========================= */
-
-.read-more {
-  display: inline-block;
-  margin-top: 18px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #0b3a2a;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.85;
-  transition: transform 0.25s ease, opacity 0.25s ease;
-}
-
-.read-more:hover {
-  opacity: 1;
-  transform: translateX(4px);
-}
-
-/* =========================
-   ANIMATION STATES
-   ========================= */
-
-/* DOT DEFAULT (INACTIVE) */
-.exp-dot {
-  background: #0b3a2a;
-  transform: scale(0.85);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-/* OUTER RING DEFAULT */
-.exp-dot::before {
-  border-color: rgba(11, 58, 42, 0.35);
-}
-
-/* ACTIVE DOT */
-.exp-item.active .exp-dot {
-  transform: scale(1.1);
-  box-shadow: 0 0 0 10px rgba(11, 58, 42, 0.15);
-}
-
-.exp-item.active .exp-dot::before {
-  border-color: rgba(11, 58, 42, 0.7);
-}
-
-
-/* =========================
-   EXPAND / COLLAPSE
-   ========================= */
-
-.exp-more {
-  display: none;
-}
-
-.exp-item.expanded .exp-more {
-  display: block;
-}
-
-.exp-toggle {
-  margin-top: 18px;
-  background: none;
-  border: none;
-  padding: 0;
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 500;
-  color: #0b3a2a;
-  cursor: pointer;
-  opacity: 0.85;
-}
-
-.exp-toggle:hover {
-  opacity: 1;
-}
-
-/* spacing fix */
-.exp-more li {
-  margin-top: 12px;
-}
-
-
-
-
-
-
-/* =========================
-   MY WORKS
-========================= */
-
-.works {
-  background: #ffffff;
-  padding: 120px 56px;
-}
-
-.works-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.works-header {
-  text-align: center;
-  margin-bottom: 72px;
-}
-
-.works-header h2 {
-  font-size: 48px;
-  margin-bottom: 14px;
-}
-
-.works-header p {
-  font-size: 17px;
-  color: var(--muted);
-  max-width: 520px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-/* GRID */
-.works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 36px;
-}
-
-/* CARD */
-.work-card {
-  display: flex;
-  flex-direction: column;
-  border-radius: 28px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #fff;
-  transform: translateY(0);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.work-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.18);
-}
-
-/* IMAGE */
-.work-image {
-  height: 240px;
-  overflow: hidden;
-}
-
-.work-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transform: scale(1);
-  transition: transform 0.6s ease;
-}
-
-.work-card:hover img {
-  transform: scale(1.06);
-}
-
-/* INFO */
-.work-info {
-  padding: 28px;
-}
-
-.work-info h3 {
-  font-size: 22px;
-  margin-bottom: 6px;
-}
-
-.work-info span {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
-/* COLOR VARIANTS */
-.work-card.purple { background: #4b2ca3; }
-.work-card.green  { background: #2f5d46; }
-.work-card.orange { background: #ff9f43; }
-.work-card.dark   { background: #1f2937; }
-.work-card.yellow { background: #facc15; color:#111; }
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  .works-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .works {
-    padding: 80px 24px;
-  }
-
-  .works-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .works-header h2 {
-    font-size: 36px;
-  }
-}
-
-
-
-
-
-
-
-</style>
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">Shubham<br/>Sharma.</div>
-  <div class="actions">
-    <a href="#">About</a>
-    <a href="#">My Works</a>
-    <a href="#" class="btn">Book Now</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-left">
-    <small>Hey there,</small>
-    <h1>
-      I’m Shubham<br/>
-      Sharma
-    </h1>
-    <p>
-      Product and AI leader building scalable data platforms
-      and intelligent systems for enterprise and government.
-    </p>
-    <a href="#">Let’s collaborate →</a>
-  </div>
-
-  <div class="hero-right">
-    <div class="shape one"></div>
-    <div class="shape two"></div>
-    <div class="shape three"></div>
-
-    <div class="metric left">
-      <strong>10+</strong>
-      Years Experience
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      Shubham<br />
+      Sharma.
     </div>
-
-    <div class="metric right">
-      <strong>100+</strong>
-      Clients & Programs
+    <div class="actions">
+      <a href="#">About</a>
+      <a href="#">My Works</a>
+      <a href="#" class="btn">Book Now</a>
     </div>
+  </nav>
 
-    <div class="hero-image">
-      <img src="images/shubham1-removebg-preview.png" alt="Shubham Sharma">
-    </div>
-  </div>
-</section>
-
-<section class="experience">
-  <div class="experience-inner">
-
-    <!-- LEFT: TEXT -->
-    <div class="experience-text">
-      <h2>Experience</h2>
-
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <small>Hey there,</small>
+      <h1>
+        I’m Shubham<br />
+        Sharma
+      </h1>
       <p>
-        Product and AI leader with 10+ years of experience building scalable
-        data platforms, AI-driven products, and enterprise systems across
-        government and private-sector ecosystems.
+        Product and AI leader building scalable data platforms
+        and intelligent systems for enterprise and government.
       </p>
+      <a href="#">Let’s collaborate →</a>
 
-      <p>
-        Led end-to-end product strategy, architecture, and execution for
-        analytics, GenAI, and data platforms used at national and enterprise
-        scale.
-      </p>
+      <div class="hero-cta">
+              
+        <div class="certifications">
+          
+      
+          <div class="cert-badges">
+            <img src="certifications/azure-solutions-architect-expert.png" alt="Azure Solutions Architect">
+            <img src="certifications/azuredatascientist.png" alt="Azure Data Scientist">
+            <img src="certifications/azure-data-engineer-associate.png" alt="Azure Data Engineer">
+          </div>
+        </div>
+      </div>
 
-      <p class="highlight">
-        Worked closely with global technology partners and delivered
-        high-impact platforms across multiple industries.
-      </p>
     </div>
 
-    <!-- RIGHT: LOGOS -->
-    <div class="logo-wall">
+    <div class="hero-right">
+      <div class="shape one"></div>
+      <div class="shape two"></div>
+      <div class="shape three"></div>
 
-      <div class="logo-column move-up">
+      <div class="metric left">
+        <strong>10+</strong>
+        Years Experience
+      </div>
 
-<!-- ORIGINAL -->
-<div class="logo-card">
-        <img src="logos/microsoft.svg" alt="">
+      <div class="metric right">
+        <strong>100+</strong>
+        Clients & Programs
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="images/shubham1-removebg-preview.png"
+          alt="Shubham Sharma"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience">
+    <div class="experience-inner">
+
+      <div class="experience-text">
+        <h2>Experience</h2>
+
+        <p>
+          Product and AI leader with 10+ years of experience building scalable
+          data platforms, AI-driven products, and enterprise systems across
+          government and private-sector ecosystems.
+        </p>
+
+        <p>
+          Led end-to-end product strategy, architecture, and execution for
+          analytics, GenAI, and data platforms used at national and enterprise
+          scale.
+        </p>
+
+        <p class="highlight">
+          Worked closely with global technology partners and delivered
+          high-impact platforms across multiple industries.
+        </p>
+      </div>
+
+      <div class="logo-wall">
+
+        <div class="logo-column move-up">
+          <div class="logo-card"><img src="logos/microsoft.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/virtusa.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/gi.jfif" alt="" /></div>
+          <div class="logo-card"><img src="logos/citiustech.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/classplus.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/birlasoft.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/exl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/gmr.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/jspl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/ltts.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/relaxo.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/nia.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/yesbank.png" alt="" /></div>
+
+          <div class="logo-card"><img src="logos/microsoft.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/virtusa.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/gi.jfif" alt="" /></div>
+          <div class="logo-card"><img src="logos/citiustech.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/classplus.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/birlasoft.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/exl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/gmr.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/jspl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/ltts.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/relaxo.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/nia.svg" alt="" /></div>
+          <div class="logo-card"><img src="logos/yesbank.png" alt="" /></div>
+        </div>
+
+        <div class="logo-column move-down">
+          <div class="logo-card"><img src="logos/bpcl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/mahait.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/nsdc.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/hpcl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/ioagpl.jfif" alt="" /></div>
+          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
+
+          <div class="logo-card"><img src="logos/bpcl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/mahait.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/nsdc.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
+          <div class="logo-card"><img src="logos/hpcl.png" alt="" /></div>
+          <div class="logo-card"><img src="logos/ioagpl.jfif" alt="" /></div>
+          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+ <!-- SPEAKING -->
+  <section class="speaking">
+    <div class="speaking-inner">
+  
+      <header class="speaking-header">
+        <h2>Speaking & Community</h2>
+        <p>
+          Actively engaged across industry forums, government workshops, and academic institutions, sharing practical insights on data platforms, Generative AI, and enterprise-scale transformation. Sessions and engagements have spanned Microsoft Partner Summits, GenAI workshops for senior government stakeholders, NASSCOM industry forums, and Data & AI workshops at leading universities—focused on real-world adoption, scalable architectures, and building future-ready digital capabilities.
+        </p>
+      </header>
+  
+      <div class="pinboard">
+
+        <figure class="pin tilt-1">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/microsoft3.jpeg" alt="Microsoft AI Expert Lecture for Indian Air Force">
+            </div>
+            <figcaption>Microsoft AI Advancement for Indian Air Force</figcaption>
+          </div>
+        </figure>
+      
+        <figure class="pin tilt-2">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/nasscom.jfif" alt="NASSCOM Summit">
+            </div>
+            <figcaption>NASSCOM SME Confluence 2024 Delhi</figcaption>
+          </div>
+        </figure>
+      
+        <figure class="pin tilt-3">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/microsoft2.jfif" alt="Microsoft Partner Summit">
+            </div>
+            <figcaption>Microsoft Partner Summit for Data and AI</figcaption>
+          </div>
+        </figure>
+      
+        <figure class="pin tilt-4">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/glbajaj.png" alt="GL Bajaj College Seminar">
+            </div>
+            <figcaption>GL Bajaj College Data & AI Workshop</figcaption>
+          </div>
+        </figure>
+      
+        <figure class="pin tilt-5">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/sharda.png" alt="Sharda University Seminar">
+            </div>
+            <figcaption>Sharda University Data & AI Workshop</figcaption>
+          </div>
+        </figure>
+      
+      </div>
+      
+  
+    </div>
+  </section>
+  
+
+
+
+
+
+
+
+
+
+  <!-- CAPABILITIES -->
+  <section class="capabilities">
+    <div class="cap-inner">
+
+      <div class="cap-text">
+        <h2>
+          Delivering <span>AI-Driven</span><br />
+          Data & Product Platforms
+        </h2>
+
+        <p>
+          I specialise in building scalable data platforms, AI-powered products,
+          and enterprise-grade systems across government and private-sector
+          ecosystems.
+        </p>
+
+        <ul class="cap-menu">
+          <li class="active" data-target="ai">AI & GenAI Platforms</li>
+          <li data-target="data">Data & Analytics</li>
+          <li data-target="cloud">Cloud & Architecture</li>
+          <li data-target="product">Product Leadership</li>
+        </ul>
+      </div>
+
+      <!-- AI / GenAI -->
+      <div class="cap-stack" id="capStack">
+        <div class="stack-group active" data-group="ai">
+          <div class="stack-card">Generative AI Products</div>
+          <div class="stack-card">LLM & RAG Systems</div>
+          <div class="stack-card">Resume Intelligence & Scoring</div>
+          <div class="stack-card">AI Interview Questioning</div>
+        </div>
+
+        
+        <!-- Data & Analytics -->
+        <div class="stack-group" data-group="data">
+          <div class="stack-card">Databricks & Lakehouse</div>
+          <div class="stack-card">Azure Data Lake (ADLS Gen2)</div>
+          <div class="stack-card">Delta Lake Pipelines</div>
+          <div class="stack-card">Analytics & Reporting (Power BI)</div>
+        </div>
+
+        <!-- Cloud & Architecture -->
+        <div class="stack-group" data-group="cloud">
+          <div class="stack-card">Microsoft Azure</div>
+          <div class="stack-card">Event-Driven Architectures</div>
+          <div class="stack-card">Azure Functions & APIs</div>
+          <div class="stack-card">Scalable Cloud Platforms</div>
+        </div>
+
+        <!-- Product & Strategy -->
+        <div class="stack-group" data-group="product">
+          <div class="stack-card">Product Strategy & Roadmaps</div>
+          <div class="stack-card">Enterprise Platforms</div>
+          <div class="stack-card">Government & PSU Programs</div>
+          <div class="stack-card">AI Products at National Scale</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATIC CAPABILITIES -->
+  <section class="capabilities-static">
+    <div class="caps-inner">
+      <span class="caps-label">CAPABILITIES</span>
+
+      <div class="caps-grid">
+        <ul>
+          <li>Product Management</li>
+          <li>Roadmap & Vision Development</li>
+          <li>Stakeholder Management</li>
+          <li>Cross-Functional Leadership</li>
+          <li>Resource & Delivery Planning</li>
+        </ul>
+
+        <ul>
+          <li>Growth & Platform Strategy</li>
+          <li>Data-Driven Decision Making</li>
+          <li>Problem Solving & Innovation</li>
+          <li>Enterprise Product Delivery</li>
+          <li>UX / System Design Strategy</li>
+        </ul>
+
+        <ul>
+          <li>Commercial & Financial Awareness</li>
+          <li>Program & Project Management</li>
+          <li>Customer-Centric Design</li>
+          <li>Agile / SAFe Methodologies</li>
+          <li>Market & Ecosystem Analysis</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section class="work-exp">
+
+    <div class="work-left">
+      <h2>
+        My work<br />
+        experience
+      </h2>
+    </div>
+
+    <div class="work-right">
+
+      <!-- KFIN -->
+      <div class="exp-item">
+        <div class="timeline-col">
+          <span class="exp-dot"></span>
+          <span class="exp-line"></span>
+        </div>
+
+        <div class="exp-content">
+          <h3>KFin Technologies</h3>
+          <p class="meta">
+            <strong>Data & AI Technical Manager</strong> · Hyderabad, India · 2022 – Present
+          </p>
+
+          <ul class="exp-points">
+            <li>
+              Leading enterprise-scale <strong>Data, Analytics, and Gen-AI platforms</strong>
+              serving AMCs, RTAs, custodians, trustees, and financial regulators.
+            </li>
+            <li>
+              Architected modern Azure data platforms using
+              <strong>Databricks, ADLS Gen2, Delta Lake, Event Hubs, Unity Catalog</strong>.
+            </li>
+
+            <div class="exp-more">
+              <li>Driving adoption of Gen-AI and RAG systems.</li>
+              <li>Designed scalable ingestion pipelines.</li>
+              <li>Partnering with compliance and risk teams.</li>
+              <li>Leading multi-year modernization initiatives.</li>
+            </div>
+          </ul>
+
+          <button class="exp-toggle">Read more →</button>
+        </div>
+      </div>
+
+      <!-- GLORIOUS INSIGHT -->
+      <div class="exp-item">
+        <div class="timeline-col">
+          <span class="exp-dot"></span>
+          <span class="exp-line"></span>
+        </div>
+
+<div class="exp-content">
+  <h3>GLORIOUS INSIGHT PVT LTD</h3>
+  <p class="meta">
+    <strong>Services Delivery Head & Technology Pre-sales Specialist</strong>
+    · Noida, UP · 2019 – Present
+  </p>
+
+  <!-- Visible Section -->
+  <ul class="exp-points">
+    <li>Heading technology vertical having 80+ employees. Consulted 100+ enterprise clients from Fashion, KPO, BPO, IT, Steel Manufacturing, Car Manufacturing, Jewelry, Banking, Fintech, Electrical Manufacturing, Fashion & Retail, Government, Public Sector, Education etc. industries and assisted in their digital transformation journey.</li>
+    <li>Collaborate regularly with Microsoft Data and AI team (AE, AM, ATS, CSP etc.) to deliver cutting-edge technological solutions to large enterprise and government accounts, resulting in 80% increase in Technology adoption.</li>
+    <li>Founded 4 COEs: GIGA-MINDS (BI), DIRA (AI), CID (Custom Apps), DIODE (Data) for specializing and excelling in 4 service verticals at GI.</li>
+    <li>Founded training and skill development center for freshers and experienced professionals for continuous development and updates in technologies with Game theory-based system for engaging all professionals.</li>
+    <li>Led the Data, Analytics, AI, and Enterprise Application teams at Glorious Insight, managing day-to-day operations and ensuring timely delivery of projects.</li>
+
+    <!-- Read More Section -->
+    <div class="exp-more">
+      
+      <li>Responsible for grooming, training freshers and leads and getting successful resource deployments at multiple enterprise clients.</li>
+      <li>Conducted DATA and AI workshops at multiple colleges like Sharda University, GL Bajaj, ABES etc.</li>
+      <li>Responsible for managing presales, sales and technical deliveries at multiple enterprise clients.</li>
+      <li>Responsible for planning, budgeting, hiring, training, managing, delivering, growing, account farming and hunting at Glorious Insight for all projects.</li>
+      <li>Responsible for making RFPs for various Govt and Non-Govt entities.</li>
+      <li>Working closely with multiple company business functions for business development.</li>
+      <li>Participated in business development, leading to a 50% growth in new business opportunities and an average of 25% increase in annual revenue year on year.</li>
+      <li>Directed resource planning, project planning, strategy planning, and data and AI architecture consultation, reducing project turnaround time and improving solution efficiency, reducing effective project duration by 40%.</li>
+      <li>Provided leadership and team management, fostering a high-performance game-theory based culture that increased team productivity multifold.</li>
+      <li>Managed client relationships and operational activities, achieving reduction in operational costs through process optimization and strategic planning.</li>
+      <li>Worked closely with company founders, sales, PMs, OEM, HR, and finance teams to strategically plan and execute organizational goals, leading to a significant increase in overall organizational efficiency.</li>
+
+      <p class="meta"><strong>Technical Lead (2022–2023)</strong></p>
+      <li>Managed and led the analytics vertical at Glorious Insight, overseeing a team of professionals and consultants.</li>
+      <li>Consulted with various enterprises on their data and analytics solution needs.</li>
+      <li>Directed team operations for both HQ and client-site deployed resources, ensuring seamless project execution and resource allocation.</li>
+      <li>Provided client consultation, solution design, and implementation for data and analytics projects.</li>
+      <li>Oversaw project management, technical support, and troubleshooting.</li>
+      <li>Drove continuous improvement initiatives and stayed abreast of the latest technology trends, integrating new advancements that improved solution efficiency by 20%.</li>
+
+      <p class="meta"><strong>Senior Software Engineer (2021–2022)</strong></p>
+      <li>Architected and implemented end-to-end MSBI solutions for a leading global management consulting company, engaging with various business stakeholders.</li>
+      <li>Led the deployment of a business analytics solution that provided near real-time insights into employee activity, performance, productivity, leakage time, and idle time for over 50,000 employees across multiple business units, verticals, clients, and processes. This system also included historical trend analysis to improve employee and process productivity.</li>
+      <li>Implemented and managed an MSBI-based business analytics solution to monitor and evaluate project transitions within the organization. Delivered 360-degree insights on transition efficiency, costs, project go-live trends, revenue generation, and other key transition metrics for various global locations and processes.</li>
+      <li>Enhanced decision-making and strategic planning for business units by delivering accurate, timely, and actionable analytics solutions. Designed and implemented end-to-end BI solutions for leading companies in battery manufacturing, electrical manufacturing, fashion, retail, and logistics industries, enhancing insights into CRM analytics, employee performance, and logistics, impacting strategic decision-making. Utilized cloud-based and on-premises technologies, including Power BI, MSBI, and Azure Cloud Modern BI platforms.</li>
+      <li>Worked as an individual contributor and also led the team in several projects. Responsibilities included development, requirement gathering, solution consulting, business interaction with IT heads and IT team, and leading the BI team.</li>
+
+      <p class="meta"><strong>Software Engineer (2019–2021)</strong></p>
+      <li>Managed Designed and implemented end-to-end BI solutions for leading companies in battery manufacturing, electrical manufacturing, fashion, retail, and logistics industries, enhancing insights into CRM analytics, employee performance, and logistics, impacting strategic decision-making. Utilized cloud-based and on-premises technologies, including Power BI, MSBI, and Azure Cloud Modern BI platforms.</li>
+      <li>Worked as an individual contributor and also led the team in several projects. Responsibilities included development, requirement gathering, solution consulting, business interaction with IT heads and IT team, and leading the BI team.</li>
+    </div>
+  </ul>
+
+  <button class="exp-toggle">Read more →</button>
 </div>
-<div class="logo-card">
-        <img src="logos/virtusa.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/gi.jfif" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/citiustech.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/classplus.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/birlasoft.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/exl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/gmr.svg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/jspl.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/ltts.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/relaxo.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/nia.svg" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/yesbank.png" alt="">
-</div>
+
+      </div>
+
+      <!-- PRM -->
+      <div class="exp-item">
+        <div class="timeline-col">
+          <span class="exp-dot"></span>
+          <span class="exp-line"></span>
+        </div>
+
+        <div class="exp-content">
+          <h3>PRM Soft Solutions Pvt. Ltd.</h3>
+          <p class="meta">
+            <strong>Business Intelligence Developer</strong>
+            · Pune, India · 2015 – 2019
+          </p>
+
+          <ul class="exp-points">
+            <li>Designed Power BI and MSBI solutions.</li>
+            <li>Built operational and executive dashboards.</li>
+
+            <div class="exp-more">
+              <li>Worked on SQL Server and ETL pipelines.</li>
+              <li>Collaborated with business stakeholders.</li>
+            </div>
+          </ul>
+
+          <button class="exp-toggle">Read more →</button>
+        </div>
+      </div>
+
+      <!-- DRDO -->
+      <div class="exp-item">
+        <div class="timeline-col">
+          <span class="exp-dot"></span>
+          <span class="exp-line"></span>
+        </div>
+
+        <div class="exp-content">
+          <h3>DRDO — DTRL Lab</h3>
+          <p class="meta">
+            <strong>Project Intern</strong>
+            · New Delhi, India · 2014 – 2015
+          </p>
+
+          <ul class="exp-points">
+            <li>Research on augmented vision perception.</li>
+            <li>Image-based enemy detection systems.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MY WORKS -->
+  <section class="works">
+    <div class="works-inner">
+
+      <header class="works-header">
+        <h2>My Works</h2>
+        <p>
+          A selection of recent projects highlighting product strategy,
+          custom platforms, and enterprise-grade digital solutions.
+        </p>
+      </header>
+
+      <div class="works-grid" id="worksGrid"></div>
       
 
 
-<!-- DUPLICATE -->
-<div class="logo-card">
-        <img src="logos/microsoft.svg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/virtusa.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/gi.jfif" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/citiustech.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/classplus.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/birlasoft.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/exl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/gmr.svg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/jspl.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/ltts.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/relaxo.png" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/nia.svg" alt="">
-</div>
-<div class="logo-card">
-	<img src="logos/yesbank.png" alt="">
-</div>
-
-      </div>
-     
-
-
-
-<!-- ORIGINAL -->
-      <div class="logo-column move-down">
-<div class="logo-card">
-        <img src="logos/bpcl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mahait.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/nsdc.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mpsedc.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/hpcl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/ioagpl.jfif" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/nia.svg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mpsedc.jpg" alt="">    
-</div> 
-
-
-<!-- DUPLICATE -->
-<div class="logo-card">
-        <img src="logos/bpcl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mahait.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/nsdc.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mpsedc.jpg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/hpcl.png" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/ioagpl.jfif" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/nia.svg" alt="">
-</div>
-<div class="logo-card">
-        <img src="logos/mpsedc.jpg" alt="">    
-</div> 
-  
-      </div>
 
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-<section class="capabilities">
-  <div class="cap-inner">
-
-    <!-- LEFT CONTENT -->
-    <div class="cap-text">
-      <h2>
-        Delivering <span>AI-Driven</span><br/>
-        Data & Product Platforms
-      </h2>
-
-      <p>
-        I specialise in building scalable data platforms, AI-powered products,
-        and enterprise-grade systems across government and private-sector ecosystems.
-        My work spans product strategy, cloud data architecture, analytics, and
-        applied GenAI—turning complex requirements into reliable, high-impact solutions.
-      </p>
-
-<ul class="cap-menu">
-  <li class="active" data-target="ai">AI & GenAI Platforms</li>
-  <li data-target="data">Data & Analytics</li>
-  <li data-target="cloud">Cloud & Architecture</li>
-  <li data-target="product">Product Leadership</li>
-</ul>
-
-    </div>
-
-    <!-- RIGHT STACK -->
-    <div class="cap-stack" id="capStack">
-
-  <!-- AI -->
-  <div class="stack-group active" data-group="ai">
-    <img src="logos/azure-openai.svg" alt="Azure OpenAI">
-    <img src="logos/azure-ai.svg" alt="Azure AI">
-    <div class="stack-card">RAG / LLM Systems</div>
-  </div>
-
-  <!-- DATA -->
-  <div class="stack-group" data-group="data">
-    <img src="logos/databricks.svg" alt="Databricks">
-    <img src="logos/adls.svg" alt="ADLS Gen2">
-    <img src="logos/delta.svg" alt="Delta Lake">
-    <img src="logos/powerbi.svg" alt="Power BI">
-  </div>
-
-  <!-- CLOUD -->
-  <div class="stack-group" data-group="cloud">
-    <img src="logos/azure.svg" alt="Microsoft Azure">
-    <img src="logos/event-hubs.svg" alt="Event Hubs">
-    <img src="logos/functions.svg" alt="Azure Functions">
-    <img src="logos/aks.svg" alt="AKS">
-  </div>
-
-  <!-- PRODUCT -->
-  <div class="stack-group" data-group="product">
-    <div class="stack-card">Enterprise Platforms</div>
-    <div class="stack-card">Government Programs</div>
-    <div class="stack-card">AI Products at Scale</div>
-  </div>
-
-</div>
-
-
-  </div>
-</section>
-
-
-
-
-
-<section class="capabilities-static">
-  <div class="caps-inner">
-
-    <span class="caps-label">CAPABILITIES</span>
-
-    <div class="caps-grid">
-
-      <ul>
-        <li>Product Management</li>
-        <li>Roadmap & Vision Development</li>
-        <li>Stakeholder Management</li>
-        <li>Cross-Functional Leadership</li>
-        <li>Resource & Delivery Planning</li>
-      </ul>
-
-      <ul>
-        <li>Growth & Platform Strategy</li>
-        <li>Data-Driven Decision Making</li>
-        <li>Problem Solving & Innovation</li>
-        <li>Enterprise Product Delivery</li>
-        <li>UX / System Design Strategy</li>
-      </ul>
-
-      <ul>
-        <li>Commercial & Financial Awareness</li>
-        <li>Program & Project Management</li>
-        <li>Customer-Centric Design</li>
-        <li>Agile / SAFe Methodologies</li>
-        <li>Market & Ecosystem Analysis</li>
-      </ul>
-
-    </div>
-
-  </div>
-</section>
-
-
-
-
-
-<!-- WORK EXPERIENCE -->
-<!-- WORK EXPERIENCE -->
-<section class="work-exp">
-
-  <!-- LEFT -->
-  <div class="work-left">
-    <h2>
-      My work<br>
-      experience
-    </h2>
-  </div>
-
-  <!-- RIGHT -->
-  <div class="work-right">
-
-    <!-- =========================
-         KFIN TECHNOLOGIES
-    ========================== -->
-    <div class="exp-item">
-      <div class="timeline-col">
-        <span class="exp-dot"></span>
-        <span class="exp-line"></span>
-      </div>
-
-      <div class="exp-content">
-        <h3>KFin Technologies</h3>
-        <p class="meta">
-          <strong>Data & AI Technical Manager</strong> · Hyderabad, India · 2022 – Present
-        </p>
-
-        <ul class="exp-points">
-          <li>
-            Leading enterprise-scale <strong>Data, Analytics, and Gen-AI platforms</strong>
-            serving AMCs, RTAs, custodians, trustees, and financial regulators.
-          </li>
-          <li>
-            Architected modern Azure data platforms using
-            <strong>Databricks, ADLS Gen2, Delta Lake, Event Hubs, Unity Catalog</strong>
-            following Medallion and governance-first architecture.
-          </li>
-
-          <div class="exp-more">
-            <li>
-              Driving adoption of <strong>Gen-AI, RAG-based systems, AI copilots</strong>
-              to improve operational efficiency, reporting accuracy, and decision velocity.
-            </li>
-            <li>
-              Designed scalable ingestion pipelines for high-volume financial data,
-              ensuring reliability, auditability, and regulatory compliance.
-            </li>
-            <li>
-              Partnering with compliance, risk, and business teams to translate
-              regulatory requirements into production-grade data solutions.
-            </li>
-            <li>
-              Leading architecture reviews, roadmap planning, and execution
-              for multi-year enterprise data modernization initiatives.
-            </li>
-          </div>
-        </ul>
-
-        <button class="exp-toggle">Read more →</button>
-      </div>
-    </div>
-
-    <!-- =========================
-         GLORIOUS INSIGHT
-    ========================== -->
-    <div class="exp-item">
-      <div class="timeline-col">
-        <span class="exp-dot"></span>
-        <span class="exp-line"></span>
-      </div>
-
-      <div class="exp-content">
-        <h3>Glorious Insight Pvt. Ltd.</h3>
-        <p class="meta">
-          <strong>Technical Manager · Data & AI Architect · Delivery Head</strong>
-          · Noida, India · 2019 – Present
-        </p>
-
-        <ul class="exp-points">
-          <li>
-            Built and scaled the <strong>Data, Analytics & Gen-AI practice from the ground up</strong>,
-            growing a 50+ member team across AI, BI, data engineering, and applications.
-          </li>
-          <li>
-            Established multiple Centers of Excellence:
-            <strong>GIGA-MINDS (BI), DIRA (AI), DIODE (Data), CID (Apps)</strong>
-            to drive specialization and delivery excellence.
-          </li>
-
-          <div class="exp-more">
-            <li>
-              Worked closely with <strong>Microsoft Data & AI teams</strong>
-              (AE, AM, ATS, CSP) to architect and deliver enterprise and government solutions.
-            </li>
-            <li>
-              Led presales, solution architecture, and RFP responses,
-              winning <strong>~$2M worth of Analytics and Gen-AI programs</strong>.
-            </li>
-            <li>
-              Owned delivery governance, account growth, and stakeholder management
-              across multiple large-scale programs.
-            </li>
-            <li>
-              Drove ~25% year-on-year revenue growth through strategic partnerships,
-              repeat business, and platform-led offerings.
-            </li>
-          </div>
-        </ul>
-
-        <button class="exp-toggle">Read more →</button>
-      </div>
-    </div>
-
-    <!-- =========================
-         PRM SOFT SOLUTIONS
-    ========================== -->
-    <div class="exp-item">
-      <div class="timeline-col">
-        <span class="exp-dot"></span>
-        <span class="exp-line"></span>
-      </div>
-
-      <div class="exp-content">
-        <h3>PRM Soft Solutions Pvt. Ltd.</h3>
-        <p class="meta">
-          <strong>Business Intelligence Developer</strong>
-          · Pune, India · 2015 – 2019
-        </p>
-
-        <ul class="exp-points">
-          <li>
-            Designed and delivered <strong>Power BI and MSBI solutions</strong>
-            for manufacturing, retail, logistics, and enterprise clients.
-          </li>
-          <li>
-            Built analytical dashboards covering CRM analytics,
-            operational KPIs, and executive reporting.
-          </li>
-
-          <div class="exp-more">
-            <li>
-              Worked extensively on <strong>SQL Server, data modeling, ETL pipelines</strong>
-              and performance-optimized reporting solutions.
-            </li>
-            <li>
-              Collaborated directly with business stakeholders to translate
-              reporting needs into scalable BI solutions.
-            </li>
-          </div>
-        </ul>
-
-        <button class="exp-toggle">Read more →</button>
-      </div>
-    </div>
-
-    <!-- =========================
-         DRDO
-    ========================== -->
-    <div class="exp-item">
-      <div class="timeline-col">
-        <span class="exp-dot"></span>
-        <span class="exp-line"></span>
-      </div>
-
-      <div class="exp-content">
-        <h3>DRDO — DTRL Lab</h3>
-        <p class="meta">
-          <strong>Project Intern</strong>
-          · New Delhi, India · 2014 – 2015
-        </p>
-
-        <ul class="exp-points">
-          <li>
-            Contributed to defense research on
-            <strong>augmented vision perception using long-infrared imagery</strong>.
-          </li>
-          <li>
-            Supported early research on image-based enemy detection
-            for satellite surveillance systems.
-          </li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-
-    <!-- =========================
-         My Works
-    ========================== -->
-
-
-<section class="works">
-  <div class="works-inner">
-
-    <header class="works-header">
-      <h2>My Works</h2>
-      <p>
-        A selection of recent projects highlighting product strategy,
-        custom platforms, and enterprise-grade digital solutions.
-      </p>
-    </header>
-
-    <div class="works-grid">
-
-      <!-- CARD 1 -->
-      <a href="#" class="work-card purple">
-        <div class="work-image">
-          <img src="images/work-mentored.jpg" alt="Mentored">
-        </div>
-        <div class="work-info">
-          <h3>Mentored</h3>
-          <span>Product Platform · Gen-AI · Enterprise</span>
-        </div>
-      </a>
-
-      <!-- CARD 2 -->
-      <a href="#" class="work-card green">
-        <div class="work-image">
-          <img src="images/work-shippit.jpg" alt="Shippit">
-        </div>
-        <div class="work-info">
-          <h3>Shippit</h3>
-          <span>Data Platform · Analytics · Cloud</span>
-        </div>
-      </a>
-
-      <!-- CARD 3 -->
-      <a href="#" class="work-card orange">
-        <div class="work-image">
-          <img src="images/work-carter.jpg" alt="Carter Grange">
-        </div>
-        <div class="work-info">
-          <h3>Carter Grange</h3>
-          <span>Enterprise Systems · UX · Architecture</span>
-        </div>
-      </a>
-
-      <!-- CARD 4 -->
-      <a href="#" class="work-card dark">
-        <div class="work-image">
-          <img src="images/work-gov.jpg" alt="Government Platform">
-        </div>
-        <div class="work-info">
-          <h3>Government Analytics Platform</h3>
-          <span>Public Sector · Data Modernisation</span>
-        </div>
-      </a>
-
-      <!-- CARD 5 -->
-      <a href="#" class="work-card yellow">
-        <div class="work-image">
-          <img src="images/work-ai.jpg" alt="AI Platform">
-        </div>
-        <div class="work-info">
-          <h3>Enterprise AI Copilot</h3>
-          <span>Gen-AI · RAG · Decision Intelligence</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-<script>
-gsap.from(".hero-left > *",{
-  y:28,
-  opacity:0,
-  stagger:0.14,
-  duration:0.9,
-  ease:"power3.out"
-});
-
-gsap.from(".hero-image",{
-  scale:0.95,
-  opacity:0,
-  duration:0.9,
-  delay:0.35,
-  ease:"power3.out"
-});
-
-gsap.from(".shape",{
-  scale:0,
-  opacity:0,
-  stagger:0.18,
-  duration:0.7,
-  delay:0.55,
-  ease:"back.out(1.5)"
-});
-</script>
-
-
-<script>
-  const menuItems = document.querySelectorAll('.cap-menu li');
-  const groups = document.querySelectorAll('.stack-group');
-
-  menuItems.forEach(item => {
-    item.addEventListener('click', () => {
-      const target = item.dataset.target;
-
-      // menu state
-      menuItems.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
-
-      // stack switch
-      groups.forEach(g => {
-        g.classList.remove('active');
-        if (g.dataset.group === target) {
-          g.classList.add('active');
-        }
-      });
-    });
-  });
-</script>
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-  gsap.registerPlugin(ScrollTrigger);
-</script>
-
-
-
-<script>
-gsap.utils.toArray(".exp-item").forEach((item) => {
-  const line = item.querySelector(".exp-line");
-  const dot = item.querySelector(".exp-dot");
-  const content = item.querySelector(".exp-content");
-
-  // 1️⃣ Measure content height
-  const contentHeight = content.offsetHeight;
-
-  // 2️⃣ Apply real pixel height to line
-  gsap.set(line, {
-    height: contentHeight
-  });
-
-  // 3️⃣ Dot activation
-  gsap.to(dot, {
-    scale: 1,
-  duration: 0.22,
-  ease: "power2.out",
-    boxShadow: "0 0 0 10px rgba(11,58,42,0.15)",
-  duration: 0.22,
-  ease: "power2.out",
-    scrollTrigger: {
-      trigger: content,
-      start: "top 45%",
-      toggleActions: "play none none reverse"
-    }
-  });
-
-  // 4️⃣ Progressive line fill (SCRUBBED)
-  gsap.to(line, {
-    scaleY: 1,
-    ease: "none",
-    scrollTrigger: {
-      trigger: content,
-      start: "top 45%",
-      end: "bottom 45%",
-      scrub: true
-    }
-  });
-});
-</script>
-
-
-
-<script>
-document.querySelectorAll(".exp-toggle").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const item = btn.closest(".exp-item");
-    const isExpanded = item.classList.contains("expanded");
-
-    // Toggle state
-    item.classList.toggle("expanded");
-
-    // Button text
-    btn.textContent = isExpanded ? "Read more →" : "Hide ↑";
-
-    // 🔑 Recalculate timeline height + ScrollTrigger
-    ScrollTrigger.refresh();
-  });
-});
-</script>
-
-
-
-
-
-
-
-
-
+  <script src="js/works-render.js"></script>
 </body>
 </html>
-
-
-

@@ -1,0 +1,131 @@
+/* Experience */
+.experience {
+    height: 100vh;          /* ⬅ owns viewport */
+    padding: 0 56px;        /* remove vertical padding */
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  
+  .experience-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;           /* ⬅ fill parent */
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 250px;
+    align-items: center;
+  }
+  
+  /* LEFT TEXT */
+  .experience-text h2 {
+    font-size: 42px;
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+  
+  .experience-text p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--muted);
+    margin-bottom: 16px;
+    text-align: justify;
+  }
+  
+  .experience-text .highlight {
+    color: var(--text);
+    font-weight: 500;
+  }
+  
+  /* RIGHT LOGO WALL */
+  .logo-wall {
+    display: grid;
+    grid-template-columns: 180px 180px;  /* ⬅ column width */
+    gap: 15px;
+  
+    height: 100%;
+    padding: 0;
+    overflow: hidden;
+  
+    justify-content: start;
+    align-items: flex-start;
+  }
+  
+  
+  .logo-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .logo-column img {
+    width: 100%;
+    max-width: 160px;   /* keeps logo proportions */
+    margin: 0 auto;
+    opacity: 0.95;
+    
+  }
+  
+  .logo-column img:hover {
+    opacity: 0.9;
+  }
+  
+  /* ANIMATIONS */
+  .move-up {
+    animation: scrollUp 22s linear infinite;
+  }
+  
+  .move-down {
+    animation: scrollDown 22s linear infinite;
+  }
+  
+  @keyframes scrollUp {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+  
+  @keyframes scrollDown {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+  /* =========================
+     LOGO CARDS
+     ========================= */
+  
+  .logo-card {
+    width: 180px;
+    height: 180px;
+  
+    background: #f4f6f5;                 /* light gray */
+    border-radius: 16px;                 /* rounded corners */
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  
+  /* LOGO IMAGE */
+  .logo-card img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+  
+  
+    opacity: 0.95;
+  
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* HOVER (optional but recommended) */
+  .logo-card:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  
+  

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "hpcl-ai-recruitment",
+    "title": "Generative AI–Enabled Recruitment Platform",
+    "subtitle": "Enterprise AI · GovTech · Hiring at National Scale",
+    "image": "../case-studies/hpcl/hpcl-home.png",
+    "theme": "green",
+    "published": true,
+    "contentFile": "case-studies/hpcl-ai-recruitment.md",
+    "seo": {
+      "title": "Generative AI Recruitment Platform – HPCL Case Study",
+      "description": "How a Generative AI–powered recruitment platform transformed large-scale hiring and compliance workflows at HPCL."
+    }
+  },
+
+  {
+  "id": "punjab-govt-dogr-generative-ai-chatbot",
+  "title": "Generative AI Chatbot for Punjab Government (DoGR)",
+  "subtitle": "GovTech · Generative AI · State-Scale Deployment",
+  "image": "../case-studies/punjabIT/punjabchatbot.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/punjab-govt-dogr-generative-ai-chatbot.md",
+  "seo": {
+    "title": "Punjab Govt DoGR Generative AI Chatbot Case Study",
+    "description": "Case study on designing and delivering a multilingual, Azure-based Generative AI chatbot for Punjab Government’s Department of Governance Reforms."
+  }
+},
+
+{
+  "id": "powergrid-generative-ai-chatbot",
+  "title": "Generative AI Knowledge Chatbot for PowerGrid",
+  "subtitle": "Energy & Utilities · Generative AI · Enterprise Scale",
+  "image": "../case-studies/powergrid/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/powergrid-generative-ai-chatbot.md",
+  "seo": {
+    "title": "PowerGrid Generative AI Chatbot Case Study",
+    "description": "Case study on building a secure, document-grounded Generative AI chatbot for Power Grid Corporation of India to enable conversational access to operational and maintenance knowledge."
+  }
+},
+
+{
+  "id": "ignou-multilingual-ai-chatbot",
+  "title": "Multilingual Generative AI Chatbot for IGNOU Swayam",
+  "subtitle": "EdTech · Generative AI · National Scale",
+  "image": "../case-studies/ignou/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/ignou-multilingual-ai-chatbot.md",
+  "seo": {
+    "title": "IGNOU Swayam Multilingual Generative AI Chatbot Case Study",
+    "description": "Case study on building a multilingual, document- and video-grounded Generative AI chatbot for IGNOU’s Swayam learning platform to enhance student learning and teacher productivity."
+  }
+},
+
+{
+  "id": "nsdc-jobx-generative-ai-platform",
+  "title": "Generative AI–Powered Job Matching Platform for NSDC JobX",
+  "subtitle": "GovTech · AI Recruitment · National Scale",
+  "image": "../case-studies/nsdc/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/nsdc-jobx-generative-ai-platform.md",
+  "seo": {
+    "title": "NSDC JobX Generative AI Recruitment Platform Case Study",
+    "description": "Case study on building a Generative AI–powered recruitment and job-matching platform for NSDC’s JobX portal, enabling intelligent resume analysis, job recommendations, and recruiter insights."
+  }
+},
+
+{
+  "id": "ai-rfp-generation-platform",
+  "title": "AI-Powered RFP Generation & Management Platform for MPSeDC",
+  "subtitle": "Enterprise SaaS · Generative AI · B2B Scale",
+  "image": "../case-studies/mpsedc/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/ai-rfp-generation-platform.md",
+  "seo": {
+    "title": "AI RFP Generation Platform Case Study",
+    "description": "Case study on designing an AI-powered RFP generation and management platform to automate proposal creation, collaboration, and compliance for enterprise teams."
+  }
+}
+
+
+
+]

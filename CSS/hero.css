@@ -1,0 +1,161 @@
+/* HERO */
+.hero {
+    display: grid;
+    grid-template-columns: 0.9fr 1.10fr;
+    align-items: center;
+    gap: 10px;
+  
+    height: calc(100vh - 72px); /* nav height accounted */
+    padding: 40px 56px;
+  
+    overflow: hidden;
+  }
+  
+  
+  .hero-left small{
+    color:var(--muted);
+    font-size:15px;
+  }
+  
+  .hero-left h1{
+    font-size:64px;
+    line-height:1.07;
+    margin:20px 0;
+    color:var(--primary);
+  }
+  
+  .hero-left p{
+    font-size:17px;
+    max-width:460px;
+    color:#2e3d36;
+  }
+  
+  .hero-left a{
+    display:inline-block;
+    margin-top:22px;
+    color:var(--primary);
+    font-weight:600;
+    text-decoration:none;
+  }
+  
+  /* RIGHT */
+  .hero-right{
+    position:relative;
+  }
+  
+  /* SHAPES */
+  .shape{
+    position:absolute;
+    width:460px;
+    height:110px;
+    background:#0b3a2a;
+    border-radius:120px;
+    opacity:1;
+  }
+  
+  .shape.one{
+    top:185px;
+    left:150px;
+    transform:rotate(-30deg);
+  }
+  
+  .shape.two{
+    bottom:218px;
+    right:138px;
+    transform:rotate(0deg);
+  }
+  
+  .shape.three{
+    top:365px;
+    left:200px;
+    transform:rotate(-30deg);
+  }
+  
+  /* IMAGE */
+  .hero-image{
+    position:relative;
+    z-index:2;
+    display:flex;
+    justify-content:center;
+  }
+  
+  .hero-image img{
+    width:110%;
+    max-width:400px;          /* ⬅ enlarged */
+    height:auto;
+    transform: translateY(12px);
+    filter: drop-shadow(0 14px 32px rgba(0,0,0,0.08));
+  }
+  
+  /* METRICS */
+  .metric {
+    position: absolute;
+    font-size: 20px;
+    color: var(--primary);
+    max-width: 120px;
+  }
+  
+  .metric.left {
+    left: 0;
+    bottom: 45%;
+  }
+  
+  .metric.right {
+    right: 0;
+    bottom: 38%;
+    text-align: right;
+  }
+  
+  
+  .metric strong{
+    display:block;
+    font-size:40px;
+  }
+  
+
+
+
+  /* certifications badges section */
+  .hero-cta {
+    margin-top: 100px;
+  }
+  
+  .hero-cta > a {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--primary);
+    text-decoration: none;
+  }
+  
+  /* CERTIFICATIONS */
+  .certifications {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .certifications span {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  
+  .cert-badges {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .cert-badges img {
+    height: 120px;
+    width: auto;
+    opacity: 1;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  
+  .cert-badges img:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+  

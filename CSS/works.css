@@ -1,0 +1,120 @@
+
+
+/* =========================
+   MY WORKS
+========================= */
+
+.works {
+    background: #ffffff;
+    padding: 120px 56px;
+  }
+  
+  .works-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .works-header {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  
+  .works-header h2 {
+    font-size: 48px;
+    margin-bottom: 14px;
+  }
+  
+  .works-header p {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* GRID */
+  .works-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+  }
+  
+  /* CARD */
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 28px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  
+  .work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.18);
+  }
+  
+  /* IMAGE */
+  .work-image {
+    height: 240px;
+    overflow: hidden;
+  }
+  
+  .work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 0.6s ease;
+  }
+  
+  .work-card:hover img {
+    transform: scale(1.06);
+  }
+  
+  /* INFO */
+  .work-info {
+    padding: 28px;
+  }
+  
+  .work-info h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  
+  .work-info span {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  /* COLOR VARIANTS */
+  .work-card.purple { background: #4b2ca3; }
+  .work-card.green  { background: #2f5d46; }
+  .work-card.orange { background: #ff9f43; }
+  .work-card.dark   { background: #1f2937; }
+  .work-card.yellow { background: #facc15; color:#111; }
+  
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .works-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .works {
+      padding: 80px 24px;
+    }
+  
+    .works-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .works-header h2 {
+      font-size: 36px;
+    }
+  }
+  
+  
