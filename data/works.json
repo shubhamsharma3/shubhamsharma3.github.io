@@ -3,7 +3,7 @@
     "id": "hpcl-ai-recruitment",
     "title": "Generative AI–Enabled Recruitment Platform",
     "subtitle": "Enterprise AI · GovTech · Hiring at National Scale",
-    "image": "../case-studies/hpcl/hpcl-home.png",
+    "image": "../case-studies/hpcl/thumbnail.png",
     "theme": "green",
     "published": true,
     "contentFile": "case-studies/hpcl-ai-recruitment.md",
@@ -17,7 +17,7 @@
   "id": "punjab-govt-dogr-generative-ai-chatbot",
   "title": "Generative AI Chatbot for Punjab Government (DoGR)",
   "subtitle": "GovTech · Generative AI · State-Scale Deployment",
-  "image": "../case-studies/punjabIT/punjabchatbot.png",
+  "image": "../case-studies/punjabIT/thumbnail.png",
   "theme": "green",
   "published": true,
   "contentFile": "case-studies/punjab-govt-dogr-generative-ai-chatbot.md",
@@ -80,6 +80,62 @@
   "seo": {
     "title": "AI RFP Generation Platform Case Study",
     "description": "Case study on designing an AI-powered RFP generation and management platform to automate proposal creation, collaboration, and compliance for enterprise teams."
+  }
+},
+
+{
+  "id": "citiustech-generative-ai-tutor",
+  "title": "Generative AI–Powered Personalized Tutor Platform",
+  "subtitle": "HealthTech · Generative AI · Enterprise Learning",
+  "image": "../case-studies/citiustech/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/citiustech-generative-ai-tutor.md",
+  "seo": {
+    "title": "CitiusTech Generative AI Tutor Platform Case Study",
+    "description": "Case study on designing a multi-phase Generative AI tutor platform for CitiusTech, enabling personalized, adaptive, and governed learning using knowledge graphs and advanced reasoning."
+  }
+},
+
+{
+  "id": "gujarat-generative-ai-citizen-chatbot",
+  "title": "Generative AI Citizen Assistance Chatbot for Government of Gujarat",
+  "subtitle": "GovTech · Generative AI · State-Scale Deployment",
+  "image": "../case-studies/gujaratIT/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/gujarat-generative-ai-citizen-chatbot.md",
+  "seo": {
+    "title": "Government of Gujarat Generative AI Citizen Chatbot Case Study",
+    "description": "Case study on designing and deploying a Generative AI–powered citizen assistance chatbot for the Government of Gujarat to streamline access to 400+ public services."
+  }
+},
+
+{
+  "id": "indian-air-force-techforce-ai",
+  "title": "TechForce AI Platform for Indian Air Force",
+  "subtitle": "DefenseTech · Generative AI · Mission-Critical Systems",
+  "image": "../case-studies/iaf/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/indian-air-force-techforce-ai.md",
+  "seo": {
+    "title": "Indian Air Force TechForce AI Case Study",
+    "description": "Case study on designing a secure, air-gapped Generative AI platform for the Indian Air Force to enable document intelligence, database assistance, and legacy code modernization."
+  }
+},
+
+{
+  "id": "classplus-ai-question-generation-platform",
+  "title": "AI-Powered Question Paper Generation Platform for Classplus",
+  "subtitle": "EdTech · Generative AI · Exam Preparation at Scale",
+  "image": "../case-studies/classplus/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/classplus-ai-question-generation-platform.md",
+  "seo": {
+    "title": "Classplus AI Question Paper Generation Case Study",
+    "description": "Case study on building an AI-powered platform for Classplus to automate question paper extraction, pattern analysis, and generation using Azure OpenAI, Custom Vision, and Document Intelligence."
   }
 }
 
