@@ -137,6 +137,34 @@
     "title": "Classplus AI Question Paper Generation Case Study",
     "description": "Case study on building an AI-powered platform for Classplus to automate question paper extraction, pattern analysis, and generation using Azure OpenAI, Custom Vision, and Document Intelligence."
   }
+},
+
+{
+  "id": "nia-airport-flight-data-platform",
+  "title": "NIA Flight Data Platform",
+  "subtitle": "Aviation · Data Platform · Real-Time APIs",
+  "image": "../case-studies/nia/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/nia-airport-flight-data-platform.md",
+  "seo": {
+    "title": "NIA Airport Flight Data Platform Case Study",
+    "description": "Case study on building a scalable, real-time flight data platform for NIA using lakehouse architecture, standardized data products, and secure serving APIs."
+  }
+},
+
+{
+  "id": "bpcl-generative-ai-chatbot",
+  "title": "Generative AI Customer Assistance Chatbot for BPCL",
+  "subtitle": "Energy · Generative AI · Enterprise Support Platform",
+  "image": "../case-studies/bpcl/thumbnail.png",
+  "theme": "green",
+  "published": true,
+  "contentFile": "case-studies/bpcl-generative-ai-chatbot.md",
+  "seo": {
+    "title": "BPCL Generative AI Chatbot Case Study",
+    "description": "Case study on designing a multilingual, voice-enabled Generative AI chatbot for BPCL to automate customer query handling, SOP-based responses, and call center escalation workflows."
+  }
 }
 
 
