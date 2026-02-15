@@ -1,70 +1,277 @@
+/* ========================= */
+/* NAVBAR CONTAINER */
+/* ========================= */
+
 nav {
-    position: fixed;        /* stays on top */
-    top: 0;
-    left: 0;
-    width: 100%;
-  
-    z-index: 1000;          /* above all sections */
-    background: var(--bg); /* same as hero background */
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  
-    padding: 18px 56px;
-  
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    backdrop-filter: blur(6px); /* subtle premium feel */
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 56px;
+
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+
+  z-index: 1000;
+
+}
+
+
+/* ========================= */
+/* LOGO */
+/* ========================= */
+
+nav .logo {
+
+  font-weight: 800;
+  font-size: 18px;
+
+  line-height: 1.05;
+
+  color: var(--text-main);
+
+  text-decoration: none;
+
+  letter-spacing: -0.02em;
+
+  transition: opacity 0.2s ease;
+
+}
+
+nav .logo:hover {
+
+  opacity: 0.7;
+
+}
+
+
+/* ========================= */
+/* RIGHT SIDE ACTIONS */
+/* ========================= */
+
+.actions {
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+}
+
+
+/* ========================= */
+/* NAV LINKS */
+/* ========================= */
+
+nav a {
+
+  position: relative;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: var(--text-main);
+
+  text-decoration: none;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  transition: all 0.2s ease;
+
+}
+
+
+/* hover effect */
+
+nav a:hover {
+
+  background:  #a7b2ea;
+  color: var(--text-main);   /* force black text */
+
+}
+
+
+/* active link */
+
+nav a.active {
+
+  background: #a7b2ea;
+
+  color: rgb(255, 255, 255);
+
+}
+
+
+/* ========================= */
+/* DROPDOWN */
+/* ========================= */
+
+.dropdown {
+
+  position: relative;
+
+}
+
+
+/* dropdown trigger */
+
+.dropbtn {
+
+  cursor: pointer;
+
+}
+
+
+/* dropdown menu */
+
+.dropdown-content {
+
+  position: absolute;
+
+  top: 48px;
+  left: 0;
+
+  min-width: 240px;
+
+  padding: 8px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(0,0,0,0.06);
+
+  box-shadow:
+  0 8px 24px rgba(0,0,0,0.08),
+  0 2px 6px rgba(0,0,0,0.04);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-6px);
+
+  transition: all 0.18s ease;
+
+}
+
+
+/* show dropdown */
+
+.dropdown:hover .dropdown-content {
+
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+}
+
+
+/* ========================= */
+/* ACTIVE STATE FOR PARENT */
+/* highlight "About Me" */
+/* ========================= */
+
+.dropdown.active .dropbtn {
+
+  background:  #324ac0;
+
+  color: #ffffff;
+
+  border-radius: 999px;
+
+  padding: 8px 14px;
+
+}
+
+
+/* dropdown links */
+
+.dropdown-content a {
+
+  font-size: 14px;
+
+  padding: 10px 14px;
+
+  border-radius: 8px;
+
+  color: var(--text-main);
+
+}
+
+
+/* dropdown hover */
+
+.dropdown-content a:hover {
+
+  background:  #a7b2ea;
+  color: var(--text-main);
+
+}
+
+
+/* dropdown active */
+
+.dropdown-content a.active {
+
+  background:  #a7b2ea;
+
+  color: white;
+
+}
+
+
+/* ========================= */
+/* OPTIONAL BUTTON STYLE */
+/* ========================= */
+
+.actions a.btn {
+
+  background:  #a7b2ea;
+
+  color: white;
+
+  padding: 8px 16px;
+
+  border-radius: 8px;
+
+}
+
+.actions a.btn:hover {
+
+  background: #0f5a41;
+
+}
+
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  nav {
+
+    padding: 16px 20px;
+
   }
-  
-  nav .logo {
-    font-weight: 800;
-  }
-  
-  nav a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 999px;
-    transition: background 0.25s ease;
-  }
-  
-  /* subtle hover */
-  nav a:hover {
-    background: rgba(11, 58, 42, 0.08);
-    color: var(--text);
-  }
-  
-  /* active section */
-  nav a.active {
-    background: var(--primary);
-    color: #ffffff;
-  }
-  
+
   .actions {
-    display: flex;
-    gap: 28px;
-    align-items: center;
+
+    gap: 6px;
+
   }
-  
-  .actions a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-  }
-  
-  /* CTA button */
-  .actions a.btn {
-    background: var(--primary);
-    color: #ffffff;      /* ✅ NOW IT WILL WORK */
-    padding: 9px 18px;
-    border-radius: 9px;
-    font-size: 14px;
-  }
-  
-  .actions a.btn:hover {
-    background: #0f5a41;  /* ⬅ lighter green */
-    color: #ffffff;       /* stays white */
-  }
-  
+
+}

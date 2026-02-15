@@ -1,0 +1,94 @@
+  <!-- CAPABILITIES -->
+  <section class="capabilities">
+    <div class="cap-inner">
+
+      <div class="cap-text">
+        <h2>
+          Delivering <span>AI-Driven</span><br />
+          Data & Product Platforms
+        </h2>
+
+        <p>
+          I specialise in building scalable data platforms, AI-powered products,
+          and enterprise-grade systems across government and private-sector
+          ecosystems.
+        </p>
+
+        <ul class="cap-menu">
+          <li class="active" data-target="ai">AI & GenAI Platforms</li>
+          <li data-target="data">Data & Analytics</li>
+          <li data-target="cloud">Cloud & Architecture</li>
+          <li data-target="product">Product Leadership</li>
+        </ul>
+      </div>
+
+      <!-- AI / GenAI -->
+      <div class="cap-stack" id="capStack">
+        <div class="stack-group active" data-group="ai">
+          <div class="stack-card">Generative AI Products</div>
+          <div class="stack-card">LLM & RAG Systems</div>
+          <div class="stack-card">Resume Intelligence & Scoring</div>
+          <div class="stack-card">AI Interview Questioning</div>
+        </div>
+
+        
+        <!-- Data & Analytics -->
+        <div class="stack-group" data-group="data">
+          <div class="stack-card">Databricks & Lakehouse</div>
+          <div class="stack-card">Azure Data Lake (ADLS Gen2)</div>
+          <div class="stack-card">Delta Lake Pipelines</div>
+          <div class="stack-card">Analytics & Reporting (Power BI)</div>
+        </div>
+
+        <!-- Cloud & Architecture -->
+        <div class="stack-group" data-group="cloud">
+          <div class="stack-card">Microsoft Azure</div>
+          <div class="stack-card">Event-Driven Architectures</div>
+          <div class="stack-card">Azure Functions & APIs</div>
+          <div class="stack-card">Scalable Cloud Platforms</div>
+        </div>
+
+        <!-- Product & Strategy -->
+        <div class="stack-group" data-group="product">
+          <div class="stack-card">Product Strategy & Roadmaps</div>
+          <div class="stack-card">Enterprise Platforms</div>
+          <div class="stack-card">Government & PSU Programs</div>
+          <div class="stack-card">AI Products at National Scale</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATIC CAPABILITIES -->
+  <section class="capabilities-static">
+    <div class="caps-inner">
+      <span class="caps-label">CAPABILITIES</span>
+
+      <div class="caps-grid">
+        <ul>
+          <li>Product Management</li>
+          <li>Roadmap & Vision Development</li>
+          <li>Stakeholder Management</li>
+          <li>Cross-Functional Leadership</li>
+          <li>Resource & Delivery Planning</li>
+        </ul>
+
+        <ul>
+          <li>Growth & Platform Strategy</li>
+          <li>Data-Driven Decision Making</li>
+          <li>Problem Solving & Innovation</li>
+          <li>Enterprise Product Delivery</li>
+          <li>UX / System Design Strategy</li>
+        </ul>
+
+        <ul>
+          <li>Commercial & Financial Awareness</li>
+          <li>Program & Project Management</li>
+          <li>Customer-Centric Design</li>
+          <li>Agile / SAFe Methodologies</li>
+          <li>Market & Ecosystem Analysis</li>
+        </ul>
+      </div>
+    </div>
+  </section> 

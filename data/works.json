@@ -4,7 +4,7 @@
     "title": "Generative AI–Enabled Recruitment Platform",
     "subtitle": "Enterprise AI · GovTech · Hiring at National Scale",
     "image": "../case-studies/hpcl/thumbnail.png",
-    "theme": "green",
+    "theme": "purple",
     "published": true,
     "contentFile": "case-studies/hpcl-ai-recruitment.md",
     "seo": {
@@ -18,7 +18,7 @@
   "title": "Generative AI Chatbot for Punjab Government (DoGR)",
   "subtitle": "GovTech · Generative AI · State-Scale Deployment",
   "image": "../case-studies/punjabIT/thumbnail.png",
-  "theme": "green",
+  "theme": "cyan",
   "published": true,
   "contentFile": "case-studies/punjab-govt-dogr-generative-ai-chatbot.md",
   "seo": {
@@ -32,7 +32,7 @@
   "title": "Generative AI Knowledge Chatbot for PowerGrid",
   "subtitle": "Energy & Utilities · Generative AI · Enterprise Scale",
   "image": "../case-studies/powergrid/thumbnail.png",
-  "theme": "green",
+  "theme": "indigo",
   "published": true,
   "contentFile": "case-studies/powergrid-generative-ai-chatbot.md",
   "seo": {
@@ -46,7 +46,7 @@
   "title": "Multilingual Generative AI Chatbot for IGNOU Swayam",
   "subtitle": "EdTech · Generative AI · National Scale",
   "image": "../case-studies/ignou/thumbnail.png",
-  "theme": "green",
+  "theme": "blue",
   "published": true,
   "contentFile": "case-studies/ignou-multilingual-ai-chatbot.md",
   "seo": {
@@ -60,7 +60,7 @@
   "title": "Generative AI–Powered Job Matching Platform for NSDC JobX",
   "subtitle": "GovTech · AI Recruitment · National Scale",
   "image": "../case-studies/nsdc/thumbnail.png",
-  "theme": "green",
+  "theme": "pink",
   "published": true,
   "contentFile": "case-studies/nsdc-jobx-generative-ai-platform.md",
   "seo": {
@@ -74,7 +74,7 @@
   "title": "AI-Powered RFP Generation & Management Platform for MPSeDC",
   "subtitle": "Enterprise SaaS · Generative AI · B2B Scale",
   "image": "../case-studies/mpsedc/thumbnail.png",
-  "theme": "green",
+  "theme": "orange",
   "published": true,
   "contentFile": "case-studies/ai-rfp-generation-platform.md",
   "seo": {
@@ -88,7 +88,7 @@
   "title": "Generative AI–Powered Personalized Tutor Platform",
   "subtitle": "HealthTech · Generative AI · Enterprise Learning",
   "image": "../case-studies/citiustech/thumbnail.png",
-  "theme": "green",
+  "theme": "teal",
   "published": true,
   "contentFile": "case-studies/citiustech-generative-ai-tutor.md",
   "seo": {
@@ -102,7 +102,7 @@
   "title": "Generative AI Citizen Assistance Chatbot for Government of Gujarat",
   "subtitle": "GovTech · Generative AI · State-Scale Deployment",
   "image": "../case-studies/gujaratIT/thumbnail.png",
-  "theme": "green",
+  "theme": "purple",
   "published": true,
   "contentFile": "case-studies/gujarat-generative-ai-citizen-chatbot.md",
   "seo": {
@@ -116,7 +116,7 @@
   "title": "TechForce AI Platform for Indian Air Force",
   "subtitle": "DefenseTech · Generative AI · Mission-Critical Systems",
   "image": "../case-studies/iaf/thumbnail.png",
-  "theme": "green",
+  "theme": "cyan",
   "published": true,
   "contentFile": "case-studies/indian-air-force-techforce-ai.md",
   "seo": {
@@ -130,7 +130,7 @@
   "title": "AI-Powered Question Paper Generation Platform for Classplus",
   "subtitle": "EdTech · Generative AI · Exam Preparation at Scale",
   "image": "../case-studies/classplus/thumbnail.png",
-  "theme": "green",
+  "theme": "yellow",
   "published": true,
   "contentFile": "case-studies/classplus-ai-question-generation-platform.md",
   "seo": {
@@ -158,7 +158,7 @@
   "title": "Generative AI Customer Assistance Chatbot for BPCL",
   "subtitle": "Energy · Generative AI · Enterprise Support Platform",
   "image": "../case-studies/bpcl/thumbnail.png",
-  "theme": "green",
+  "theme": "orange",
   "published": true,
   "contentFile": "case-studies/bpcl-generative-ai-chatbot.md",
   "seo": {

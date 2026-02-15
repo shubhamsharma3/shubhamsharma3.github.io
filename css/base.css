@@ -7,12 +7,29 @@ html {
     width: 100%;
     overflow-x: clip; /* modern, sticky-safe */
   }
-  :root{
-    --bg:#edf2ee;
-    --primary:#0b3a2a;
-    --text:#141414;
-    --muted:#5b6b63;
-  }
+:root {
+  --primary:#0b3a2a;
+  /* Base backgrounds */
+  --bg-main: #ffffff;
+  --bg-soft: #f8fafc;
+  --bg-subtle: #f1f5f9;
+
+  /* Text hierarchy */
+  --text-main: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  /* Accent (modern, calm, premium) */
+  --accent: #2563eb;
+
+  /* Surface system */
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --skillbg: #b2f2f555;
+  --speakingbg:  #b3c6f35c; 
+  --resumebg: #80c7c262;
+}
+
   
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}

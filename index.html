@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/works.css" />
   <link rel="stylesheet" href="css/speaking.css">
   <link rel="stylesheet" href="css/case-study.css">
+  <link rel="stylesheet" href="css/skills.css">
 
   <!-- GSAP -->
   <script
@@ -42,22 +43,40 @@
 
 </head>
 
+
+
+
 <body>
 
   <!-- NAV -->
-  <nav>
-    <div class="logo">
-      Shubham<br />
-      Sharma.
+<nav>
+<a href="/index.html" class="logo">
+  Shubham<br />
+  Sharma.
+</a>
+
+
+  <div class="actions">
+
+    <!-- ABOUT ME DROPDOWN -->
+    <div class="dropdown">
+      <a href="#" class="dropbtn">👋 About Me</a>
+
+      <div class="dropdown-content">
+        <a href="pages/about-me/resume.html">Résumé</a>
+        <!-- <a href="side-projects.html">Side Projects</a> -->
+        <a href="pages/about-me/product-philosophy.html">Product Philosophy</a>
+        <!-- <a href="my-story.html">My Story</a> -->
+        <!-- <a href="manager-readme.html">Manager README</a> -->
+        <a href="pages/about-me/contact.html">Contact</a>
+      </div>
     </div>
-    <!-- 
-    <div class="actions">
-      <a href="#">About</a>
-      <a href="#">My Works</a>
-      <a href="#" class="btn">Book Now</a>
-    </div> 
-    -->
-  </nav>
+
+    <a href="/index.html#works">My Works</a>
+
+  </div>
+</nav>
+
 
   <!-- HERO -->
   <section class="hero">
@@ -71,7 +90,7 @@
         Product and AI leader building scalable data platforms
         and intelligent systems for enterprise and government.
       </p>
-      <a href="#">Let’s collaborate →</a>
+      <!-- <a href="#">Let’s collaborate →</a> -->
 
       <div class="hero-cta">
               
@@ -117,7 +136,8 @@
     <div class="experience-inner">
 
       <div class="experience-text">
-        <h2>Experience</h2>
+        <h2>Brands I Worked With</h2>
+        <h3>Experience</h3>
 
         <p>
           Product and AI leader with 10+ years of experience building scalable
@@ -251,7 +271,19 @@
             <figcaption>Sharda University Data & AI Workshop</figcaption>
           </div>
         </figure>
-      
+
+
+        <!-- 
+        <figure class="pin tilt-6">
+          <div class="pin-inner">
+            <div class="pin-media">
+              <img src="images/marathon.jpeg" alt="Marathon GMR 2026">
+            </div>
+            <figcaption>Marathon GMR 2026</figcaption>
+          </div>
+        </figure>
+        -->
+
       </div>
       
   
@@ -261,106 +293,67 @@
 
 
 
+<!-- SKILLS / CAPABILITIES -->
+<section class="skills">
+  <div class="skills-container">
+  <div class="skills-inner">
 
+    <!-- LEFT TEXT -->
+    <div class="skills-text">
+      <span class="skills-label">MY SKILLS</span>
 
+      <h2>
+        Building products<br>
+        for humans
+      </h2>
 
+      <p>
+        With my startup background, I bring a lean mindset for building products fast.
+        My psychology background uniquely connects me to building products that
+        understand and enhance user experiences.
+      </p>
+    </div>
 
+    <!-- RIGHT GRID -->
+    <div class="skills-grid">
 
-
-  <!-- CAPABILITIES -->
-  <section class="capabilities">
-    <div class="cap-inner">
-
-      <div class="cap-text">
-        <h2>
-          Delivering <span>AI-Driven</span><br />
-          Data & Product Platforms
-        </h2>
-
-        <p>
-          I specialise in building scalable data platforms, AI-powered products,
-          and enterprise-grade systems across government and private-sector
-          ecosystems.
-        </p>
-
-        <ul class="cap-menu">
-          <li class="active" data-target="ai">AI & GenAI Platforms</li>
-          <li data-target="data">Data & Analytics</li>
-          <li data-target="cloud">Cloud & Architecture</li>
-          <li data-target="product">Product Leadership</li>
-        </ul>
+      <div class="skill-card">
+        <img src="icons/sp1.png">
+        <h3>Product Strategy</h3>
+        <p>Roadmapping, A/B Tests, Project Management</p>
       </div>
 
-      <!-- AI / GenAI -->
-      <div class="cap-stack" id="capStack">
-        <div class="stack-group active" data-group="ai">
-          <div class="stack-card">Generative AI Products</div>
-          <div class="stack-card">LLM & RAG Systems</div>
-          <div class="stack-card">Resume Intelligence & Scoring</div>
-          <div class="stack-card">AI Interview Questioning</div>
-        </div>
+      <div class="skill-card">
+        <img src="icons/sp2.png">
+        <h3>Product Design</h3>
+        <p>User Stories, User Flows, Wireframes, Persona Writing</p>
+      </div>
 
-        
-        <!-- Data & Analytics -->
-        <div class="stack-group" data-group="data">
-          <div class="stack-card">Databricks & Lakehouse</div>
-          <div class="stack-card">Azure Data Lake (ADLS Gen2)</div>
-          <div class="stack-card">Delta Lake Pipelines</div>
-          <div class="stack-card">Analytics & Reporting (Power BI)</div>
-        </div>
+      <div class="skill-card">
+        <img src="icons/sp3.png">
+        <h3>Market & User Research</h3>
+        <p>Market Analysis, Experiment Design, Usability Testing</p>
+      </div>
 
-        <!-- Cloud & Architecture -->
-        <div class="stack-group" data-group="cloud">
-          <div class="stack-card">Microsoft Azure</div>
-          <div class="stack-card">Event-Driven Architectures</div>
-          <div class="stack-card">Azure Functions & APIs</div>
-          <div class="stack-card">Scalable Cloud Platforms</div>
-        </div>
-
-        <!-- Product & Strategy -->
-        <div class="stack-group" data-group="product">
-          <div class="stack-card">Product Strategy & Roadmaps</div>
-          <div class="stack-card">Enterprise Platforms</div>
-          <div class="stack-card">Government & PSU Programs</div>
-          <div class="stack-card">AI Products at National Scale</div>
-        </div>
+      <div class="skill-card">
+        <img src="icons/sp4.png">
+        <h3>Analytics & Programming</h3>
+        <p>Software Development and Management</p>
       </div>
 
     </div>
-  </section>
 
-  <!-- STATIC CAPABILITIES -->
-  <section class="capabilities-static">
-    <div class="caps-inner">
-      <span class="caps-label">CAPABILITIES</span>
+  </div>
+  </div>
+</section>
 
-      <div class="caps-grid">
-        <ul>
-          <li>Product Management</li>
-          <li>Roadmap & Vision Development</li>
-          <li>Stakeholder Management</li>
-          <li>Cross-Functional Leadership</li>
-          <li>Resource & Delivery Planning</li>
-        </ul>
 
-        <ul>
-          <li>Growth & Platform Strategy</li>
-          <li>Data-Driven Decision Making</li>
-          <li>Problem Solving & Innovation</li>
-          <li>Enterprise Product Delivery</li>
-          <li>UX / System Design Strategy</li>
-        </ul>
 
-        <ul>
-          <li>Commercial & Financial Awareness</li>
-          <li>Program & Project Management</li>
-          <li>Customer-Centric Design</li>
-          <li>Agile / SAFe Methodologies</li>
-          <li>Market & Ecosystem Analysis</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+
+
+
+  
+
 
   <!-- WORK EXPERIENCE -->
   <section class="work-exp">
@@ -487,7 +480,7 @@
             
 
             <div class="exp-more">
-              <p class="meta"><strong>Business Intelligence Developer</strong>
+              <p class="meta"><strong>Jr Data Analyst</strong>
             · Pune, India · 2015 – 2016
             </p>
               
@@ -525,7 +518,7 @@
   </section>
 
   <!-- MY WORKS -->
-  <section class="works">
+  <section class="works" id="works">
     <div class="works-inner">
 
       <header class="works-header">
@@ -545,5 +538,47 @@
   </section>
 
   <script src="js/works-render.js"></script>
+
+
+<script>
+
+const currentPath = window.location.pathname;
+
+// highlight About section if inside about pages
+const isAboutPage =
+  currentPath.includes("/about-me/")
+  || currentPath.includes("resume.html")
+  || currentPath.includes("contact.html")
+  || currentPath.includes("my-story.html")
+  || currentPath.includes("manager-readme.html")
+  || currentPath.includes("side-projects.html");
+
+if (isAboutPage) {
+
+  const dropdown = document.querySelector(".dropdown");
+
+  if (dropdown) {
+    dropdown.classList.add("active");
+  }
+
+}
+
+// highlight exact dropdown link
+document.querySelectorAll(".dropdown-content a").forEach(link => {
+
+  const linkPath = new URL(link.href).pathname;
+
+  if (currentPath === linkPath) {
+    link.classList.add("active");
+  }
+
+});
+
+</script>
+</body>
+
+
+
+
 </body>
 </html>

@@ -3,7 +3,7 @@
    ========================= */
 
    .speaking {
-    background: var(--bg);
+    background: var(--speakingbg);
     padding: 64px 56px;
   }
   
