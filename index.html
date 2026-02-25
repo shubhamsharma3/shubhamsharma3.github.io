@@ -1,584 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Shubham Sharma — Portfolio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+<title>Shubham Sharma | Product & AI Leader</title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/base.css" />
-  <link rel="stylesheet" href="css/nav.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/experience.css" />
-  <link rel="stylesheet" href="css/capabilities.css" />
-  <link rel="stylesheet" href="css/capabilities-static.css" />
-  <link rel="stylesheet" href="css/work-exp.css" />
-  <link rel="stylesheet" href="css/works.css" />
-  <link rel="stylesheet" href="css/speaking.css">
-  <link rel="stylesheet" href="css/case-study.css">
-  <link rel="stylesheet" href="css/skills.css">
 
-  <!-- GSAP -->
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-    defer
-  ></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-    defer
-  ></script>
 
-  <!-- JS -->
-  <script src="js/gsap-init.js" defer></script>
-  <script src="js/hero-animations.js" defer></script>
-  <script src="js/capabilities-tab.js" defer></script>
-  <script src="js/experience-timeline.js" defer></script>
-  <script src="js/experience-toggle.js" defer></script>
-  <script src="js/work-render.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+ <link rel="stylesheet" href="css/main.css" />
+ <link rel="stylesheet" href="css/hero.css" />
+ <link rel="stylesheet" href="css/about.css" />
+ <link rel="stylesheet" href="css/portfolio.css" />
+ <link rel="stylesheet" href="css/experience.css" />
+
+ <script src="js/main.js" defer></script>
 
 </head>
 
-
-
-
 <body>
 
-  <!-- NAV -->
-<nav>
-<a href="/index.html" class="logo">
-  Shubham<br />
-  Sharma.
-</a>
+<header class="navbar">
 
+  <div class="nav-container">
 
-  <div class="actions">
-
-    <!-- ABOUT ME DROPDOWN -->
-    <div class="dropdown">
-      <a href="#" class="dropbtn">👋 About Me</a>
-
-      <div class="dropdown-content">
-        <a href="pages/about-me/resume.html">Résumé</a>
-        <!-- <a href="side-projects.html">Side Projects</a> -->
-        <a href="pages/about-me/product-philosophy.html">Product Philosophy</a>
-        <!-- <a href="my-story.html">My Story</a> -->
-        <!-- <a href="manager-readme.html">Manager README</a> -->
-        <a href="pages/about-me/contact.html">Contact</a>
-      </div>
+    <!-- LOGO -->
+    <div class="logo">
+      <div class="logo-icon">S</div>
+      <span>Shubham</span>
     </div>
 
-    <a href="/index.html#works">My Works</a>
+    <!-- NAV MENU -->
+    <nav class="nav-menu">
 
-  </div>
-</nav>
+      <a href="#home" class="nav-link">
+        Home
+      </a>
 
+      <a href="#portfolio" class="nav-link">
+        My Works
+      </a>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-left">
-      <small>Hey there,</small>
-      <h1>
-        I’m Shubham<br />
-        Sharma
-      </h1>
-      <p>
-        Product and AI leader building scalable data platforms
-        and intelligent systems for enterprise and government.
-      </p>
-      <!-- <a href="#">Let’s collaborate →</a> -->
+      <a href="#experience" class="nav-link">
+        Experience
+      </a>
 
-      <div class="hero-cta">
-              
-        <div class="certifications">
+      <a href="#contact" class="nav-link">
+        Contact
+      </a>
+
+      <!-- ABOUT DROPDOWN -->
+      <div class="nav-dropdown">
+
+        <div class="nav-dropdown-toggle">
+          👋 About Me
+        </div>
+
+        <div class="nav-dropdown-menu">
+
+          <a href="?view=resume" class="dropdown-item">
+            Résumé
+          </a>
+
+          <a href="?view=philosophy" class="dropdown-item">
+            Product Philosophy
+          </a>
+
           
-      
-          <div class="cert-badges">
-            <img src="certifications/azure-solutions-architect-expert.png" alt="Azure Solutions Architect">
-            <img src="certifications/azuredatascientist.png" alt="Azure Data Scientist">
-            <img src="certifications/azure-data-engineer-associate.png" alt="Azure Data Engineer">
-          </div>
-        </div>
-      </div>
 
-    </div>
-
-    <div class="hero-right">
-      <div class="shape one"></div>
-      <div class="shape two"></div>
-      <div class="shape three"></div>
-
-      <div class="metric left">
-        <strong>10+</strong>
-        Years Experience
-      </div>
-
-      <div class="metric right">
-        <strong>100+</strong>
-        Clients & Programs
-      </div>
-
-      <div class="hero-image">
-        <img
-          src="images/shubham1-removebg-preview.png"
-          alt="Shubham Sharma"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="experience">
-    <div class="experience-inner">
-
-      <div class="experience-text">
-        <h2>Brands I Worked With</h2>
-        <h3>Experience</h3>
-
-        <p>
-          Product and AI leader with 10+ years of experience building scalable
-          data platforms, AI-driven products, and enterprise systems across
-          government and private-sector ecosystems.
-        </p>
-
-        <p>
-          Led end-to-end product strategy, architecture, and execution for
-          analytics, GenAI, and data platforms used at national and enterprise
-          scale.
-        </p>
-
-        <p class="highlight">
-          Worked closely with global technology partners and delivered
-          high-impact platforms across multiple industries.
-        </p>
-      </div>
-
-      <div class="logo-wall">
-
-        <div class="logo-column move-up">
-          <div class="logo-card"><img src="logos/microsoft.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/virtusa.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/gi.jfif" alt="" /></div>
-          <div class="logo-card"><img src="logos/citiustech.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/classplus.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/birlasoft.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/exl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/gmr.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/jspl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/ltts.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/relaxo.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/nia.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/yesbank.png" alt="" /></div>
-
-          <div class="logo-card"><img src="logos/microsoft.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/virtusa.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/gi.jfif" alt="" /></div>
-          <div class="logo-card"><img src="logos/citiustech.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/classplus.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/birlasoft.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/exl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/gmr.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/jspl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/ltts.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/relaxo.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/nia.svg" alt="" /></div>
-          <div class="logo-card"><img src="logos/yesbank.png" alt="" /></div>
-        </div>
-
-        <div class="logo-column move-down">
-          <div class="logo-card"><img src="logos/bpcl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/mahait.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/nsdc.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/hpcl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/ioagpl.jfif" alt="" /></div>
-          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
-
-          <div class="logo-card"><img src="logos/bpcl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/mahait.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/nsdc.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
-          <div class="logo-card"><img src="logos/hpcl.png" alt="" /></div>
-          <div class="logo-card"><img src="logos/ioagpl.jfif" alt="" /></div>
-          <div class="logo-card"><img src="logos/mpsedc.jpg" alt="" /></div>
         </div>
 
       </div>
-    </div>
-  </section>
 
-
-
-
- <!-- SPEAKING -->
-  <section class="speaking">
-    <div class="speaking-inner">
-  
-      <header class="speaking-header">
-        <h2>Speaking & Community</h2>
-        <p>
-          Actively engaged across industry forums, government workshops, and academic institutions, sharing practical insights on data platforms, Generative AI, and enterprise-scale transformation. Sessions and engagements have spanned Microsoft Partner Summits, GenAI workshops for senior government stakeholders, NASSCOM industry forums, and Data & AI workshops at leading universities—focused on real-world adoption, scalable architectures, and building future-ready digital capabilities.
-        </p>
-      </header>
-  
-      <div class="pinboard">
-
-        <figure class="pin tilt-1">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/microsoft3.jpeg" alt="Microsoft AI Expert Lecture for Indian Air Force">
-            </div>
-            <figcaption>Microsoft AI Advancement for Indian Air Force</figcaption>
-          </div>
-        </figure>
-      
-        <figure class="pin tilt-2">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/nasscom.jfif" alt="NASSCOM Summit">
-            </div>
-            <figcaption>NASSCOM SME Confluence 2024 Delhi</figcaption>
-          </div>
-        </figure>
-      
-        <figure class="pin tilt-3">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/microsoft2.jfif" alt="Microsoft Partner Summit">
-            </div>
-            <figcaption>Microsoft Partner Summit for Data and AI</figcaption>
-          </div>
-        </figure>
-      
-        <figure class="pin tilt-4">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/glbajaj.png" alt="GL Bajaj College Seminar">
-            </div>
-            <figcaption>GL Bajaj College Data & AI Workshop</figcaption>
-          </div>
-        </figure>
-      
-        <figure class="pin tilt-5">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/sharda.png" alt="Sharda University Seminar">
-            </div>
-            <figcaption>Sharda University Data & AI Workshop</figcaption>
-          </div>
-        </figure>
-
-
-        <!-- 
-        <figure class="pin tilt-6">
-          <div class="pin-inner">
-            <div class="pin-media">
-              <img src="images/marathon.jpeg" alt="Marathon GMR 2026">
-            </div>
-            <figcaption>Marathon GMR 2026</figcaption>
-          </div>
-        </figure>
-        -->
-
-      </div>
-      
-  
-    </div>
-  </section>
-  
-
-
-
-<!-- SKILLS / CAPABILITIES -->
-<section class="skills">
-  <div class="skills-container">
-  <div class="skills-inner">
-
-    <!-- LEFT TEXT -->
-    <div class="skills-text">
-      <span class="skills-label">MY SKILLS</span>
-
-      <h2>
-        Building products<br>
-        for humans
-      </h2>
-
-      <p>
-        With my startup background, I bring a lean mindset for building products fast.
-        My psychology background uniquely connects me to building products that
-        understand and enhance user experiences.
-      </p>
-    </div>
-
-    <!-- RIGHT GRID -->
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <img src="icons/sp1.png">
-        <h3>Product Strategy</h3>
-        <p>Roadmapping, A/B Tests, Project Management</p>
-      </div>
-
-      <div class="skill-card">
-        <img src="icons/sp2.png">
-        <h3>Product Design</h3>
-        <p>User Stories, User Flows, Wireframes, Persona Writing</p>
-      </div>
-
-      <div class="skill-card">
-        <img src="icons/sp3.png">
-        <h3>Market & User Research</h3>
-        <p>Market Analysis, Experiment Design, Usability Testing</p>
-      </div>
-
-      <div class="skill-card">
-        <img src="icons/sp4.png">
-        <h3>Analytics & Programming</h3>
-        <p>Software Development and Management</p>
-      </div>
-
-    </div>
+    </nav>
 
   </div>
-  </div>
+
+</header>
+
+
+<div id="case-study-container"></div>
+
+
+<section id="home" class="hero">
+
+<div class="hero-inner">
+
+<div class="hero-container">
+
+<div class="hero-left">
+
+<div class="badge fade-up">
+Hi, I'm Shubham
+</div>
+
+<h1 class="hero-title fade-up delay-1">
+Product &<br>
+<span class="gradient-text">AI Leader</span>
+</h1>
+
+<p class="hero-description fade-up delay-2">
+Building scalable data platforms and intelligent systems for enterprise and government.
+</p>
+
+<div class="hero-buttons fade-up delay-3">
+
+<a href="#portfolio" class="primary-btn">View Work</a>
+<!-- <button class="primary-btn">View Work</button> -->
+<a href="#contact" class="secondary-btn">Contact Me</a>
+<!-- <button class="secondary-btn">Contact Me</button> -->
+
+</div>
+
+<ul class="hero-points">
+
+<li class="fade-up delay-4">
+<span class="check-icon">✓</span>
+10+ years of experience in building large-scale data and AI platforms.
+</li>
+
+<li class="fade-up delay-5">
+<span class="check-icon">✓</span>
+Worked with 100+ Enterprises, delivering data-driven and AI driven solutions.
+</li>
+
+<li class="fade-up delay-6">
+<span class="check-icon">✓</span>
+Expertise in AI/ML, Big Data, and Digital Transformation.
+</li>
+
+</ul>
+
+</div>
+
+
+<div class="hero-right fade-up delay-3">
+
+<div class="image-frame parallax-container">
+
+<div class="frame-glow"></div>
+
+<div class="hero-image-wrapper">
+
+<img src="assets/images/shubham1-removebg-preview.png"
+class="profile-img parallax-layer"
+data-speed="0.2">
+
+</div>
+
+
+<div class="floating-card top-card parallax-layer"
+data-speed="1">
+
+<div class="card-icon purple">▶</div>
+
+<div>
+<div class="card-title">Product Strategy</div>
+<div class="card-sub">Vision to Scale</div>
+</div>
+
+</div>
+
+
+<div class="floating-card bottom-card parallax-layer"
+data-speed="0.9">
+
+<div class="card-icon green">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+  <rect x="3" y="10" width="4" height="10" rx="1" fill="white"/>
+  <rect x="10" y="6" width="4" height="14" rx="1" fill="white"/>
+  <rect x="17" y="3" width="4" height="17" rx="1" fill="white"/>
+</svg>
+</div>
+
+<div>
+<div class="card-title">Execution</div>
+<div class="card-sub">Agile Delivery</div>
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+
+<!-- About Me Section -->
+
+<section class="about">
+
+<div class="about-container">
+
+<!-- LEFT: CARDS GRID -->
+
+<div class="about-cards">
+
+<div class="about-card fade-up delay-1">
+
+<div class="about-icon purple">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+<path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" stroke="currentColor" stroke-width="2"/>
+</svg>
+</div>
+
+<h3>Product Strategy</h3>
+
+<p>
+Vision, roadmap planning, and strategic execution aligned with business goals.
+</p>
+
+</div>
+
+
+<div class="about-card fade-up delay-2">
+
+<div class="about-icon blue">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+<path d="M13 2L3 14h7v8l10-12h-7z" fill="currentColor"/>
+</svg>
+</div>
+
+<h3>Execution & Delivery</h3>
+
+<p>
+Driving product delivery through agile execution and cross-functional leadership.
+</p>
+
+</div>
+
+
+<div class="about-card fade-up delay-3">
+
+<div class="about-icon green">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+<rect x="4" y="10" width="3" height="8" fill="currentColor"/>
+<rect x="10" y="6" width="3" height="12" fill="currentColor"/>
+<rect x="16" y="3" width="3" height="15" fill="currentColor"/>
+</svg>
+</div>
+
+<h3>Data-Driven Decisions</h3>
+
+<p>
+Leveraging analytics, experiences, and insights to optimize product outcomes.
+</p>
+
+</div>
+
+
+<div class="about-card fade-up delay-4">
+
+<div class="about-icon gray">
+<svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+<rect x="3" y="7" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+<path d="M8 7V5h8v2" stroke="currentColor" stroke-width="2"/>
+</svg>
+</div>
+
+<h3>AI & Platform Products</h3>
+
+<p>
+Building scalable platforms powered by AI, data, and cloud technologies.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT: CONTENT -->
+
+<div class="about-content fade-up delay-2">
+
+<div class="about-label">
+ABOUT ME
+</div>
+
+<h2>
+Driving Products<br>
+From Idea to Scale
+</h2>
+
+<p class="about-description">
+
+I am a Product Manager with strong technical foundations and leadership experience delivering enterprise and scalable digital products.
+
+</p>
+
+<ul class="about-points">
+
+<li>
+Market space across product strategy, roadmap execution, and leading cross-functional teams to deliver high impact.
+</li>
+
+<li>
+I focus on solving next business problems using data-driven decision making, translated execution and customer-centric thinking.
+</li>
+
+</ul>
+
+
+<div class="about-tags">
+
+<span>PRODUCT MANAGER</span>
+<span>PLATFORM</span>
+<span>AI</span>
+<span>ENTERPRISE PRODUCTS</span>
+
+</div>
+
+
+<button href="#portfolio" class="primary-btn about-btn">
+View Case Studies →
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- Workshops and Participations -->
+<section id="speaking" class="speaking">
+
+<div class="container">
+
+<div class="section-header fade-up">
+
+<h2>Expert Workshops</h2>
+
+<p class="section-sub">
+Actively engaged across industry forums, government workshops, and academic institutions, sharing practical insights on data platforms, Generative AI, and enterprise-scale transformation.
+</p>
+
+</div>
+
+
+<div class="speaking-grid">
+
+
+<!-- CARD 1 -->
+
+<div class="speaking-card fade-up delay-1">
+
+<div class="speaking-image">
+
+<img src="assets/images/microsoft3.jpeg">
+
+<!-- <div class="speaking-tag">New Speaker</div> -->
+
+</div>
+
+<div class="speaking-body">
+
+<div class="speaking-role">Workshop</div>
+
+<h3>Microsoft</h3>
+
+<div class="speaking-meta">Noida</div>
+
+<div class="speaking-type">AI Advancement for Indian Air Force</div>
+
+</div>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div class="speaking-card fade-up delay-2">
+
+<div class="speaking-image">
+
+<img src="assets/images/nasscom.jfif">
+
+<!-- <div class="speaking-tag">Keynote Speaker</div> -->
+
+</div>
+
+<div class="speaking-body">
+
+<div class="speaking-role">Participant</div>
+
+<h3>NASSCOM SME Confluence</h3>
+
+<div class="speaking-meta">Delhi</div>
+
+<div class="speaking-type">SME Confluence 2024 Delhi</div>
+
+</div>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div class="speaking-card fade-up delay-3">
+
+<div class="speaking-image">
+
+<img src="assets/images/microsoft2.jfif">
+
+<!-- <div class="speaking-tag">Panelist</div> -->
+
+</div>
+
+<div class="speaking-body">
+
+<div class="speaking-role">Summit</div>
+
+<h3>Microsoft</h3>
+
+<div class="speaking-meta">Gurgaon</div>
+
+<div class="speaking-type">Partner Summit for Data and AI</div>
+
+</div>
+
+</div>
+
+
+<!-- CARD 4 -->
+
+<div class="speaking-card fade-up delay-4">
+
+<div class="speaking-image">
+
+<img src="assets/images/glbajaj.png">
+
+<!-- <div class="speaking-tag">Expert Speaker</div> -->
+
+</div>
+
+<div class="speaking-body">
+
+<div class="speaking-role">Expert Speaker</div>
+
+<h3>GL Bajaj</h3>
+
+<div class="speaking-meta">Greater Noida</div>
+
+<div class="speaking-type">Data & AI Workshop</div>
+
+</div>
+
+</div>
+
+
+
+<!-- CARD 5 -->
+
+<div class="speaking-card fade-up delay-4">
+
+<div class="speaking-image">
+
+<img src="assets/images/sharda.png">
+
+<!-- <div class="speaking-tag">Expert Speaker</div> -->
+
+</div>
+
+<div class="speaking-body">
+
+<div class="speaking-role">Expert Speaker</div>
+
+<h3>Sharda University</h3>
+
+<div class="speaking-meta">Greater Noida</div>
+
+<div class="speaking-type">Data & AI Workshop</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- DOT INDICATORS -->
+
+<!-- <div class="speaking-dots">
+
+<div class="dot active"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+<div class="dot"></div>
+
+</div> -->
+
+
+</div>
+
+</section>
+
+<!-- Portfolio section -->
+
+<section id="portfolio" class="portfolio">
+
+<div class="portfolio-container">
+
+<div class="section-header fade-up">
+<h2>Portfolio</h2>
+<div class="section-line"></div>
+</div>
+
+<div id="portfolio-grid-wrapper" class="portfolio-grid-wrapper">
+  <div id="portfolio-grid" class="portfolio-grid"></div>
+</div>
+
+<div class="portfolio-footer fade-up delay-4">
+
+<button class="primary-btn">
+View Full Portfolio
+</button>
+</a>
+</div>
+
+</div>
+
+</section>
+
+
+<script src="js/portfolio.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/case-study-render.js"></script>
+
+
+
+<!-- Work Experience Section -->
+
+<section id="experience" class="experience">
+
+<div class="container">
+
+<div class="section-header fade-up">
+<div class="section-label">CAREER PATH</div>
+<h2>Work Experience</h2>
+</div>
+
+
+<div class="timeline">
+
+<!-- ITEM 1 -->
+ <div class="timeline-line"></div>
+
+<div class="timeline-item right fade-up delay-1">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-meta">
+
+<span class="timeline-date">2025 – Present</span>
+
+<span class="timeline-location">Hyderabad, India</span>
+
+</div>
+
+<h3>Manager – Products & Strategy</h3>
+
+<div class="timeline-company">
+KFin Technologies
+</div>
+
+<p>
+
+Driving product and service improvements for IRIS and DSS platforms within the DFS department. Identifying enhancement opportunities to improve platform usability and operational efficiency.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ITEM 2 -->
+
+<div class="timeline-item left fade-up delay-2">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-meta">
+
+<span class="timeline-date">2019 – 2025</span>
+
+<span class="timeline-location">Noida, UP</span>
+
+</div>
+
+<h3>Services Delivery Head & Pre-sales Specialist</h3>
+
+<div class="timeline-company">
+Glorious Insight Pvt. Ltd.
+</div>
+
+<p>
+
+Headed technology vertical with 80+ employees. Consulted 100+ enterprise clients. Founded 4 COEs: GIGA-MINDS (BI), DIRA (AI), CID (Apps), DIODE (Data). Led Data & AI teams.
+
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ITEM 3 -->
+
+<div class="timeline-item right fade-up delay-3">
+
+<div class="timeline-dot"></div>
+
+<div class="timeline-card">
+
+<div class="timeline-meta">
+
+<span class="timeline-date">2016 – 2019</span>
+
+<span class="timeline-location">Pune, India</span>
+
+</div>
+
+<h3>Business Intelligence Developer</h3>
+
+<div class="timeline-company">
+PRM Soft Solutions
+</div>
+
+<p>
+
+Worked as BI developer on Power BI reporting tool for business dashboard requirements. Curated and developed reports for internal departments and external clients.
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- Brands worked with -->
+
+<section class="brands">
+
+<div class="brands-container">
+
+<!-- LEFT TEXT -->
+
+<div class="brands-left fade-up">
+
+<h2>
+Trusted by Leading<br>
+Organizations
+</h2>
+
+</div>
+
+
+<!-- SEPARATOR -->
+
+<div class="brands-divider"></div>
+
+
+<div class="brands-scroll">
+
+<div class="brands-track">
+
+<img src="assets/logos/birlasoft.png">
+<img src="assets/logos/bpcl.png">
+<img src="assets/logos/citiustech.jpg">
+<img src="assets/logos/classplus.png">
+<img src="assets/logos/exl.png">
+<img src="assets/logos/GMR.svg">
+<img src="assets/logos/hpcl.png">
+<img src="assets/logos/JSPL.png">
+<img src="assets/logos/LTTS.png">
+<img src="assets/logos/mahait.jpg">
+<img src="assets/logos/microsoft.svg">
+<img src="assets/logos/mpsedc.jpg">
+<img src="assets/logos/nia.svg">
+<img src="assets/logos/nsdc.png">
+<img src="assets/logos/relaxo.png">
+<img src="assets/logos/SBIMF.png">
+<img src="assets/logos/virtusa.png">
+<img src="assets/logos/yesbank.png">
+<img src="assets/logos/ioagpl.jfif">
+</div>
+
+
+</div>
+</div>
+
+</section>
+
+
+<!-- contact me -->
+<section id="contact" class="contact">
+
+<div class="contact-container">
+
+<!-- LEFT SIDE -->
+
+<div class="contact-left fade-up">
+
+<div class="contact-label">GET IN TOUCH</div>
+
+<h2 class="contact-title">
+Let's build something<br>
+amazing together.
+</h2>
+
+<p class="contact-desc">
+Whether you have a project in mind, need product consulting, or just want to chat about AI and Tech, feel free to reach out.
+</p>
+
+
+<div class="contact-info">
+
+<div class="contact-item">
+
+<div class="contact-icon">
+✉
+</div>
+
+<div>
+<div class="contact-heading">Email</div>
+<div class="contact-text">shubhamjksharma.portfolio@gmail.com</div>
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">
+📍
+</div>
+
+<div>
+<div class="contact-heading">Location</div>
+<div class="contact-text">Hyderabad, India</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact-social">
+
+<div class="social-btn">in</div>
+<div class="social-btn">𝕏</div>
+
+</div>
+
+</div>
+
+
+<!-- RIGHT SIDE -->
+
+<div class="contact-right fade-up delay-2">
+
+<div class="contact-card">
+
+<h3>Send a Message</h3>
+
+<input type="text" placeholder="John Doe">
+
+<input type="email" placeholder="john@example.com">
+
+<textarea placeholder="Tell me about your project..."></textarea>
+
+<button class="contact-btn">
+Send Message
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
 </section>
 
 
 
 
 
+<footer class="footer">
 
-  
+<div class="footer-container">
 
+© 2024 Shubham Sharma. Built with React & Tailwind.
 
-  <!-- WORK EXPERIENCE -->
-  <section class="work-exp">
-
-    <div class="work-left">
-      <h2>
-        My work<br />
-        experience
-      </h2>
-    </div>
-
-    <div class="work-right">
-
-      <!-- KFIN -->
-      <div class="exp-item">
-        <div class="timeline-col">
-          <span class="exp-dot"></span>
-          <span class="exp-line"></span>
-        </div>
-
-        <div class="exp-content">
-          <h3>KFin Technologies</h3>
-          <p class="meta">
-            <strong>Manager - Products & Strategy</strong> · Hyderabad, India · 2025 – Present
-          </p>
-
-          <ul class="exp-points">
-            <li>
-              Driving product and service improvements for IRIS and DSS platforms within the DFS department.
-            </li>
-            <li>
-              Identifying enhancement opportunities to improve platform usability, operational efficiency, and service quality.
-            </li>
-
-            <div class="exp-more">
-              <li>Working closely with technology, operations, and compliance teams to deliver scalable and compliant enhancements.</li>
-              <li>Supporting continuous improvement initiatives aligned with business needs and regulatory requirements.</li>
-              
-            </div>
-          </ul>
-
-          <button class="exp-toggle">Read more →</button>
-        </div>
-      </div>
-
-      <!-- GLORIOUS INSIGHT -->
-      <div class="exp-item">
-        <div class="timeline-col">
-          <span class="exp-dot"></span>
-          <span class="exp-line"></span>
-        </div>
-
-<div class="exp-content">
-  <h3>Glorious Insight Pvt. Ltd.</h3>
-  <p class="meta">
-    <strong>Services Delivery Head & Technology Pre-sales Specialist</strong>
-    · Noida, UP · 2019 – 2025
-  </p>
-
-  <!-- Visible Section -->
-  <ul class="exp-points">
-    <li>Heading technology vertical having 80+ employees. Consulted 100+ enterprise clients from Fashion, KPO, BPO, IT, Steel Manufacturing, Car Manufacturing, Jewelry, Banking, Fintech, Electrical Manufacturing, Fashion & Retail, Government, Public Sector, Education etc. industries and assisted in their digital transformation journey.</li>
-    <li>Collaborate regularly with Microsoft Data and AI team (AE, AM, ATS, CSP etc.) to deliver cutting-edge technological solutions to large enterprise and government accounts, resulting in 80% increase in Technology adoption.</li>
-    <li>Founded 4 COEs: GIGA-MINDS (BI), DIRA (AI), CID (Custom Apps), DIODE (Data) for specializing and excelling in 4 service verticals at GI.</li>
-    <li>Founded training and skill development center for freshers and experienced professionals for continuous development and updates in technologies with Game theory-based system for engaging all professionals.</li>
-    <li>Led the Data, Analytics, AI, and Enterprise Application teams at Glorious Insight, managing day-to-day operations and ensuring timely delivery of projects.</li>
-
-    <!-- Read More Section -->
-    <div class="exp-more">
-      
-      <li>Responsible for grooming, training freshers and leads and getting successful resource deployments at multiple enterprise clients.</li>
-      <li>Conducted DATA and AI workshops at multiple colleges like Sharda University, GL Bajaj, ABES etc.</li>
-      <li>Responsible for managing presales, sales and technical deliveries at multiple enterprise clients.</li>
-      <li>Responsible for planning, budgeting, hiring, training, managing, delivering, growing, account farming and hunting at Glorious Insight for all projects.</li>
-      <li>Responsible for making RFPs for various Govt and Non-Govt entities.</li>
-      <li>Working closely with multiple company business functions for business development.</li>
-      <li>Participated in business development, leading to a 50% growth in new business opportunities and an average of 25% increase in annual revenue year on year.</li>
-      <li>Directed resource planning, project planning, strategy planning, and data and AI architecture consultation, reducing project turnaround time and improving solution efficiency, reducing effective project duration by 40%.</li>
-      <li>Provided leadership and team management, fostering a high-performance game-theory based culture that increased team productivity multifold.</li>
-      <li>Managed client relationships and operational activities, achieving reduction in operational costs through process optimization and strategic planning.</li>
-      <li>Worked closely with company founders, sales, PMs, OEM, HR, and finance teams to strategically plan and execute organizational goals, leading to a significant increase in overall organizational efficiency.</li>
-
-      <p class="meta"><strong>Technical Lead (2022–2023)</strong></p>
-      <li>Managed and led the analytics vertical at Glorious Insight, overseeing a team of professionals and consultants.</li>
-      <li>Consulted with various enterprises on their data and analytics solution needs.</li>
-      <li>Directed team operations for both HQ and client-site deployed resources, ensuring seamless project execution and resource allocation.</li>
-      <li>Provided client consultation, solution design, and implementation for data and analytics projects.</li>
-      <li>Oversaw project management, technical support, and troubleshooting.</li>
-      <li>Drove continuous improvement initiatives and stayed abreast of the latest technology trends, integrating new advancements that improved solution efficiency by 20%.</li>
-
-      <p class="meta"><strong>Senior Software Engineer (2021–2022)</strong></p>
-      <li>Architected and implemented end-to-end MSBI solutions for a leading global management consulting company, engaging with various business stakeholders.</li>
-      <li>Led the deployment of a business analytics solution that provided near real-time insights into employee activity, performance, productivity, leakage time, and idle time for over 50,000 employees across multiple business units, verticals, clients, and processes. This system also included historical trend analysis to improve employee and process productivity.</li>
-      <li>Implemented and managed an MSBI-based business analytics solution to monitor and evaluate project transitions within the organization. Delivered 360-degree insights on transition efficiency, costs, project go-live trends, revenue generation, and other key transition metrics for various global locations and processes.</li>
-      <li>Enhanced decision-making and strategic planning for business units by delivering accurate, timely, and actionable analytics solutions. Designed and implemented end-to-end BI solutions for leading companies in battery manufacturing, electrical manufacturing, fashion, retail, and logistics industries, enhancing insights into CRM analytics, employee performance, and logistics, impacting strategic decision-making. Utilized cloud-based and on-premises technologies, including Power BI, MSBI, and Azure Cloud Modern BI platforms.</li>
-      <li>Worked as an individual contributor and also led the team in several projects. Responsibilities included development, requirement gathering, solution consulting, business interaction with IT heads and IT team, and leading the BI team.</li>
-
-      <p class="meta"><strong>Software Engineer (2019–2021)</strong></p>
-      <li>Managed Designed and implemented end-to-end BI solutions for leading companies in battery manufacturing, electrical manufacturing, fashion, retail, and logistics industries, enhancing insights into CRM analytics, employee performance, and logistics, impacting strategic decision-making. Utilized cloud-based and on-premises technologies, including Power BI, MSBI, and Azure Cloud Modern BI platforms.</li>
-      <li>Worked as an individual contributor and also led the team in several projects. Responsibilities included development, requirement gathering, solution consulting, business interaction with IT heads and IT team, and leading the BI team.</li>
-    </div>
-  </ul>
-
-  <button class="exp-toggle">Read more →</button>
 </div>
 
-      </div>
-
-      <!-- PRM -->
-      <div class="exp-item">
-        <div class="timeline-col">
-          <span class="exp-dot"></span>
-          <span class="exp-line"></span>
-        </div>
-
-        <div class="exp-content">
-          <h3>PRM Soft Solutions Pvt. Ltd.</h3>
-          <p class="meta"><strong>Business Intelligence Developer</strong>
-            · Pune, India · 2016 – 2019
-          </p>
-
-          <ul class="exp-points">
-            <li>Worked as a BI developer on Power BI reporting tool for business dashboard requirements. Responsibilities included data curation and report development for internal departments as well as external clients.</li>
-            
-
-            <div class="exp-more">
-              <p class="meta"><strong>Jr Data Analyst</strong>
-            · Pune, India · 2015 – 2016
-            </p>
-              
-              <li>Started as a trainee for the position of Jr. Data Analyst. Worked on SQL for data analysis, developing stored procedures, MIS reports, as per business requirements.</li>
-              
-            </div>
-          </ul>
-
-          <button class="exp-toggle">Read more →</button>
-        </div>
-      </div>
-
-      <!-- DRDO -->
-      <div class="exp-item">
-        <div class="timeline-col">
-          <span class="exp-dot"></span>
-          <span class="exp-line"></span>
-        </div>
-
-        <div class="exp-content">
-          <h3>DRDO — DTRL Lab</h3>
-          <p class="meta">
-            <strong>Project Intern</strong>
-            · New Delhi, India · 2014 – 2015
-          </p>
-
-          <ul class="exp-points">
-            <li>Initiated and contributed to the research project idea “Augmented Vision Perception from Long Infrared Images” in DRDO DTRL lab New Delhi, for innovation in enemy detection mechanisms using satellite long IR Images.</li>
-            
-          </ul>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- MY WORKS -->
-  <section class="works" id="works">
-    <div class="works-inner">
-
-      <header class="works-header">
-        <h2>My Works</h2>
-        <p>
-          A selection of recent projects highlighting product strategy,
-          custom platforms, and enterprise-grade digital solutions.
-        </p>
-      </header>
-
-      <div class="works-grid" id="worksGrid"></div>
-      
-
-
-
-    </div>
-  </section>
-
-  <script src="js/works-render.js"></script>
-
-
-<script>
-
-const currentPath = window.location.pathname;
-
-// highlight About section if inside about pages
-const isAboutPage =
-  currentPath.includes("/about-me/")
-  || currentPath.includes("resume.html")
-  || currentPath.includes("contact.html")
-  || currentPath.includes("my-story.html")
-  || currentPath.includes("manager-readme.html")
-  || currentPath.includes("side-projects.html");
-
-if (isAboutPage) {
-
-  const dropdown = document.querySelector(".dropdown");
-
-  if (dropdown) {
-    dropdown.classList.add("active");
-  }
-
-}
-
-// highlight exact dropdown link
-document.querySelectorAll(".dropdown-content a").forEach(link => {
-
-  const linkPath = new URL(link.href).pathname;
-
-  if (currentPath === linkPath) {
-    link.classList.add("active");
-  }
-
-});
-
-</script>
-</body>
-
-
-
+</footer>
 
 </body>
 </html>

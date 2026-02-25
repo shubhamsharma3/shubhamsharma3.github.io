@@ -1,131 +1,267 @@
-/* Experience */
+/* ================= EXPERIENCE SECTION ================= */
+
 .experience {
-    height: 100vh;          /* ⬅ owns viewport */
-    padding: 0 56px;        /* remove vertical padding */
-    background: #ffffff;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-  }
-  
-  .experience-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;           /* ⬅ fill parent */
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 250px;
-    align-items: center;
-  }
-  
-  /* LEFT TEXT */
-  .experience-text h2 {
-    font-size: 42px;
-    margin-bottom: 24px;
-    color: var(--text);
-  }
-  
-  .experience-text p {
-    font-size: 17px;
-    line-height: 1.6;
-    color: var(--muted);
-    margin-bottom: 16px;
-    text-align: justify;
-  }
-  
-  .experience-text .highlight {
-    color: var(--text);
-    font-weight: 500;
-  }
-  
-  /* RIGHT LOGO WALL */
-  .logo-wall {
-    display: grid;
-    grid-template-columns: 180px 180px;  /* ⬅ column width */
-    gap: 15px;
-  
-    height: 100%;
-    padding: 0;
-    overflow: hidden;
-  
-    justify-content: start;
-    align-items: flex-start;
-  }
-  
-  
-  .logo-column {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .logo-column img {
-    width: 100%;
-    max-width: 160px;   /* keeps logo proportions */
-    margin: 0 auto;
-    opacity: 0.95;
-    
-  }
-  
-  .logo-column img:hover {
-    opacity: 0.9;
-  }
-  
-  /* ANIMATIONS */
-  .move-up {
-    animation: scrollUp 22s linear infinite;
-  }
-  
-  .move-down {
-    animation: scrollDown 22s linear infinite;
-  }
-  
-  @keyframes scrollUp {
-    from { transform: translateY(0); }
-    to   { transform: translateY(-50%); }
-  }
-  
-  @keyframes scrollDown {
-    from { transform: translateY(-50%); }
-    to   { transform: translateY(0); }
-  }
-  /* =========================
-     LOGO CARDS
-     ========================= */
-  
-  .logo-card {
-    width: 180px;
-    height: 180px;
-  
-    background: #f4f6f5;                 /* light gray */
-    border-radius: 16px;                 /* rounded corners */
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
-  }
-  
-  /* LOGO IMAGE */
-  .logo-card img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-  
-  
-    opacity: 0.95;
-  
-    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  /* HOVER (optional but recommended) */
-  .logo-card:hover img {
-    filter: grayscale(0%);
-    opacity: 1;
-    transform: scale(1.05);
-  }
-  
-  
-  
+
+background: white;
+
+padding: 100px 0;
+
+
+}
+
+
+/* ================= CONTAINER ================= */
+
+.timeline {
+
+position: relative;
+
+max-width: 1000px;
+
+margin: 0 auto;
+z-index: 0;
+}
+
+.timeline-line {
+
+position: absolute;
+
+left: 50%;
+
+top: 0;
+bottom: 0;
+
+width: 2px;
+
+
+z-index: 0;
+
+/* SIMPLE OPACITY GRADIENT ONLY */
+background: linear-gradient(
+to bottom,
+rgba(99,102,241,0.7) 0%,
+rgba(99,102,241,0.6) 20%,
+rgba(99,102,241,0.5) 40%,
+rgba(99,102,241,0.4) 60%,
+rgba(99,102,241,0.2) 80%,
+rgba(99,102,241,0.08) 100%
+);
+
+transform: translateX(-50%);
+
+
+
+}
+/* ================= CENTER LINE ================= */
+
+/* .timeline::before {
+
+content: "";
+
+position: absolute;
+
+left: 50%;
+
+top: 0;
+bottom: 0;
+
+width: 2px;
+
+background: #e2e8f0;
+
+transform: translateX(-50%);
+
+z-index: 1;
+
+} */
+
+
+/* ================= ITEM ================= */
+
+.timeline-item {
+
+position: relative;
+
+width: 100%;
+
+display: flex;
+
+margin-bottom: 80px;
+
+}
+
+
+/* LEFT SIDE */
+
+.timeline-item.left {
+
+justify-content: flex-start;
+
+}
+
+.timeline-item.left .timeline-card {
+
+width: calc(50% - 40px);
+
+margin-right: auto;
+
+text-align: left;
+
+}
+
+
+/* RIGHT SIDE */
+
+.timeline-item.right {
+
+justify-content: flex-end;
+
+}
+
+.timeline-item.right .timeline-card {
+
+width: calc(50% - 40px);
+
+margin-left: auto;
+
+}
+
+
+/* ================= DOT (PERFECT CENTER) ================= */
+
+.timeline-dot {
+
+position: absolute;
+
+left: 50%;
+
+top: 0px;
+
+transform: translate(-50%, 0);
+
+width: 18px;
+height: 18px;
+
+background: white;
+
+border: 3px solid #6366f1;
+
+border-radius: 50%;
+
+z-index: 10;
+
+box-shadow:
+0 0 0 6px rgba(99,102,241,0.15);
+
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* INNER CENTER DOT */
+
+.timeline-dot::after {
+
+content: "";
+
+width: 6px;
+height: 6px;
+
+background: #6366f1;
+
+border-radius: 50%;
+
+}
+
+/* ================= CARD ================= */
+
+.timeline-card {
+
+background: white;
+
+padding: 26px;
+
+border-radius: 14px;
+
+border: 1px solid #e2e8f0;
+
+transition: .3s;
+
+position: relative;
+
+z-index: 2;
+
+}
+
+.timeline-card:hover {
+
+transform: translateY(-6px);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,0.08);
+
+}
+
+
+/* ================= META ================= */
+
+.timeline-meta {
+
+display: flex;
+
+justify-content: space-between;
+
+font-size: 12px;
+
+margin-bottom: 10px;
+
+}
+
+.timeline-date {
+
+background: #eef2ff;
+
+color: #6366f1;
+
+padding: 4px 10px;
+
+border-radius: 20px;
+
+font-weight: 600;
+
+}
+
+.timeline-location {
+
+color: #94a3b8;
+
+}
+
+
+/* ================= TEXT ================= */
+
+.timeline-card h3 {
+
+font-size: 18px;
+
+margin-bottom: 6px;
+
+}
+
+.timeline-company {
+
+color: #6366f1;
+
+font-weight: 500;
+
+margin-bottom: 10px;
+
+}
+
+.timeline-card p {
+
+color: #64748b;
+
+line-height: 1.6;
+
+}

@@ -1,41 +1,295 @@
-const id = new URLSearchParams(window.location.search).get("id");
+/* ============================================
+   CASE STUDY + MARKDOWN ROUTER (FULL SAFE SPA)
+   ============================================ */
 
-fetch("data/works.json")
-  .then(res => res.json())
-  .then(data => {
-    const w = data.find(item => item.id === id && item.published);
-    if (!w) return;
+document.addEventListener("DOMContentLoaded", router);
+window.addEventListener("popstate", router);
 
-    // Title & meta
-    document.title = w.seo?.title || w.title;
 
-    // Meta description
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta && w.seo?.description) {
-      meta.setAttribute("content", w.seo.description);
+/* ============================================
+   MAIN ROUTER
+   ============================================ */
+
+async function router(){
+
+  const params = new URLSearchParams(window.location.search);
+
+  const id = params.get("id");
+  const view = params.get("view");
+
+  if(id){
+
+    hideHomepage();
+    await renderCaseStudy(id);
+    return;
+
+  }
+
+  if(view === "resume"){
+
+    hideHomepage();
+    await renderMarkdown("data/resume.md");
+    return;
+
+  }
+
+  if(view === "philosophy"){
+
+    hideHomepage();
+    await renderMarkdown("data/philosophy.md");
+    return;
+
+  }
+
+  // DEFAULT STATE → HOMEPAGE
+  showHomepage();
+
+}
+
+
+/* ============================================
+   RENDER CASE STUDY
+   ============================================ */
+
+async function renderCaseStudy(id){
+
+  const container =
+    document.getElementById("case-study-container");
+
+  container.innerHTML = "<div class='case-study-page'>Loading...</div>";
+
+  try{
+
+    const res = await fetch("data/works.json");
+    const works = await res.json();
+
+    const work = works.find(w => w.id === id);
+
+    if(!work){
+
+      container.innerHTML =
+        "<div class='case-study-page'>Case study not found.</div>";
+
+      return;
     }
 
-    const titleEl = document.getElementById("cs-title");
-    const subtitleEl = document.getElementById("cs-subtitle");
-    const imageEl = document.getElementById("cs-image");
-    const contentEl = document.getElementById("cs-content");
+    const mdRes =
+      await fetch(work.contentFile);
 
-    titleEl.textContent = w.title;
-    subtitleEl.textContent = w.subtitle;
-    imageEl.src = w.image;
-    imageEl.alt = w.title;
+    const markdown =
+      await mdRes.text();
 
-    // 🔴 THIS PART IS CRITICAL
-    if (w.contentFile) {
-      fetch(w.contentFile)
-        .then(r => r.text())
-        .then(md => {
-          contentEl.innerHTML = marked.parse(md);
-        });
+    const html =
+      marked.parse(markdown);
+
+    container.innerHTML =
+    `
+    <div class="case-study-page">
+
+      <div class="case-study-wrapper">
+
+        <a href="#"
+           class="case-back-btn"
+           onclick="goHome(event)">
+           ← Back to Portfolio
+        </a>
+
+        <div class="case-study-content">
+          ${html}
+        </div>
+
+      </div>
+
+    </div>
+    `;
+
+    window.scrollTo(0,0);
+
+  }
+  catch(err){
+
+    container.innerHTML =
+      "<div class='case-study-page'>Error loading case study.</div>";
+
+    console.error(err);
+
+  }
+
+}
+
+
+/* ============================================
+   RENDER MARKDOWN (RESUME / PHILOSOPHY)
+   ============================================ */
+
+async function renderMarkdown(path){
+
+  const container =
+    document.getElementById("case-study-container");
+
+  container.innerHTML =
+    "<div class='case-study-page'>Loading...</div>";
+
+  try{
+
+    const res = await fetch(path);
+
+    const markdown =
+      await res.text();
+
+    const html =
+      marked.parse(markdown);
+
+    container.innerHTML =
+    `
+    <div class="case-study-page">
+
+      <div class="case-study-wrapper">
+
+        <a href="#"
+           class="case-back-btn"
+           onclick="goHome(event)">
+           ← Back
+        </a>
+
+        <div class="case-study-content">
+          ${html}
+        </div>
+
+      </div>
+
+    </div>
+    `;
+
+    window.scrollTo(0,0);
+
+  }
+  catch(err){
+
+    container.innerHTML =
+      "<div class='case-study-page'>Error loading content.</div>";
+
+    console.error(err);
+
+  }
+
+}
+
+
+/* ============================================
+   NAVIGATION HELPERS
+   ============================================ */
+
+function hideHomepage(){
+
+  document.querySelectorAll("section, footer")
+    .forEach(el => el.style.display = "none");
+
+}
+
+
+function showHomepage(){
+
+  document.querySelectorAll("section, footer")
+    .forEach(el => el.style.display = "");
+
+  const container =
+    document.getElementById("case-study-container");
+
+  container.innerHTML = "";
+
+}
+
+
+/* ============================================
+   BACK TO PORTFOLIO
+   ============================================ */
+
+function goHome(event){
+
+  event.preventDefault();
+
+  const params = new URLSearchParams(window.location.search);
+
+  const id = params.get("id");
+  const view = params.get("view");
+
+  // Reset URL
+  window.history.pushState({}, "", "index.html");
+
+  // Restore homepage
+  showHomepage();
+
+  // CASE STUDY → go to portfolio
+  if(id){
+
+    const portfolio =
+      document.getElementById("portfolio");
+
+    if(portfolio){
+
+      portfolio.scrollIntoView({
+        behavior: "smooth"
+      });
+
     }
-  })
-  .catch(err => {
-    console.error("Failed to load case study:", err);
-  });
+
+    return;
+  }
+
+  // RESUME or PHILOSOPHY → go to top of homepage
+  if(view === "resume" || view === "philosophy"){
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+    return;
+  }
+
+}
 
 
+/* ============================================
+   GLOBAL NAV SUPPORT (Navbar links fix)
+   ============================================ */
+
+document.addEventListener("click", function(e){
+
+  const link = e.target.closest("a");
+
+  if(!link) return;
+
+  const href = link.getAttribute("href");
+
+  if(!href) return;
+
+  // Only intercept internal navigation
+  if(
+    href === "#home" ||
+    href === "#portfolio" ||
+    href === "#experience" ||
+    href === "#contact"
+  ){
+
+    e.preventDefault();
+
+    window.history.pushState({}, "", "index.html");
+
+    showHomepage();
+
+    const target =
+      document.querySelector(href);
+
+    if(target){
+
+      target.scrollIntoView({
+        behavior:"smooth"
+      });
+
+    }
+
+  }
+
+});
