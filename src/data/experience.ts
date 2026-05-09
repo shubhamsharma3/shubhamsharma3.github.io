@@ -79,10 +79,15 @@ export const experience: Role[] = [
   },
 ];
 
+import certDataEngineer from "@/assets/cert-az-data-engineer.png";
+import certSolutionsArchitect from "@/assets/cert-az-solutions-architect.png";
+import certDataScientist from "@/assets/cert-az-data-scientist.png";
+
 export const certifications = [
-  "AZ-104 — Azure Administrator Associate",
-  "AZ-305 — Azure Solutions Architect Expert",
-  "DP-203 — Azure Data Engineer Associate",
+  { code: "DP-203", name: "Azure Data Engineer Associate", issuer: "Microsoft", image: certDataEngineer },
+  { code: "AZ-305", name: "Azure Solutions Architect Expert", issuer: "Microsoft", image: certSolutionsArchitect },
+  { code: "DP-100", name: "Azure Data Scientist Associate", issuer: "Microsoft", image: certDataScientist },
+  { code: "AZ-104", name: "Azure Administrator Associate", issuer: "Microsoft" },
 ];
 
 export const highlights = [
