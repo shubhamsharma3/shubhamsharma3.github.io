@@ -91,9 +91,20 @@ const Resume = () => (
           </Section>
 
           <Section title="Certifications">
-            <div className="flex flex-wrap gap-2">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {certifications.map((c) => (
-                <span key={c} className="rounded-full border border-border/60 bg-secondary/40 px-3 py-1.5 text-sm text-foreground/80">{c}</span>
+                <div key={c.code} className="card-premium flex flex-col items-center p-5 text-center">
+                  {c.image ? (
+                    <img src={c.image} alt={`${c.code} ${c.name}`} className="h-24 w-24 object-contain" loading="lazy" />
+                  ) : (
+                    <div className="grid h-24 w-24 place-items-center rounded-2xl bg-gradient-primary font-display text-lg font-bold text-primary-foreground">
+                      {c.code}
+                    </div>
+                  )}
+                  <div className="mt-3 font-mono text-[11px] uppercase tracking-wider text-primary">{c.code}</div>
+                  <div className="mt-1 font-display text-sm font-semibold leading-snug">{c.name}</div>
+                  <div className="mt-1 text-xs text-muted-foreground">{c.issuer}</div>
+                </div>
               ))}
             </div>
           </Section>
