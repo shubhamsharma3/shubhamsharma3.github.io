@@ -303,6 +303,30 @@ export const works: Work[] = [
     gradient: "from-orange-500 via-red-500 to-rose-600",
     tags: ["Voice", "GenAI", "Energy"],
   },
+  {
+    id: "bpcl-lpgnext-analytics-data-platform",
+    title: "BPCL LPGNext Analytics Platform",
+    subtitle: "Azure data platform PoC for LPG modernization",
+    category: "Enterprise AI",
+    year: "2023",
+    client: "Bharat Petroleum (BPCL)",
+    summary: "An Azure-based analytics data platform PoC unifying LPGNext and SAP Hybris data into an analytics-ready lake and warehouse foundation.",
+    problem: "BPCL's migration to SAP Hybris on Azure was bottlenecked by fragmented, on-prem LPG data with no unified analytics layer.",
+    approach: [
+      "Ingestion of LPGNext and SAP Hybris data into Azure",
+      "Standardized data lake + warehouse design on Microsoft stack",
+      "KPI alignment across business teams",
+      "Governed delivery with traceability and validation",
+    ],
+    impact: [
+      "Foundation for BPCL's enterprise analytics future",
+      "Cleaner, validated data feeds into SAP Hybris",
+      "Reduced manual reporting effort",
+    ],
+    stack: ["Azure Data Lake", "Synapse", "SQL", "Power BI"],
+    gradient: "from-rose-500 via-orange-500 to-amber-400",
+    tags: ["Data Platform", "Analytics", "Azure"],
+  },
 ];
 
 export const workCategories = ["All", "Enterprise AI", "GovTech", "EdTech", "Energy", "Defense", "Aviation", "HealthTech"] as const;
