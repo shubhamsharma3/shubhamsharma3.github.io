@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-const roles = ["Founder", "Engineer", "Product Builder", "AI Tinkerer", "Designer"];
+const roles = ["Product Leader", "AI Architect", "Data Strategist", "GenAI Builder", "0→1 Operator"];
 
 export const Hero = () => {
   const [i, setI] = useState(0);
@@ -14,7 +15,6 @@ export const Hero = () => {
 
   return (
     <section id="top" className="relative isolate flex min-h-screen items-center overflow-hidden pt-24">
-      {/* Background */}
       <div className="absolute inset-0 -z-10 bg-mesh" />
       <div className="absolute inset-0 -z-10 grid-pattern opacity-60" />
       <div className="absolute -top-40 left-1/2 -z-10 h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-primary/20 blur-[120px] animate-glow-pulse" />
@@ -32,7 +32,7 @@ export const Hero = () => {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
-            Available for select 2026 collaborations
+            Building GenAI for enterprise & government
           </div>
 
           <h1 className="font-display text-5xl font-bold tracking-tight md:text-7xl lg:text-[5.5rem]">
@@ -42,8 +42,8 @@ export const Hero = () => {
 
           <div className="mt-6 flex h-10 items-center justify-center gap-2 text-lg md:text-2xl">
             <Sparkles className="h-5 w-5 text-primary" />
-            <span className="text-muted-foreground">I build as a</span>
-            <span className="relative inline-block min-w-[180px] text-left">
+            <span className="text-muted-foreground">I work as a</span>
+            <span className="relative inline-block min-w-[220px] text-left">
               {roles.map((r, idx) => (
                 <motion.span
                   key={r}
@@ -59,7 +59,7 @@ export const Hero = () => {
           </div>
 
           <p className="mx-auto mt-8 max-w-2xl text-balance text-base text-muted-foreground md:text-lg">
-            Crafting elegant products at the intersection of <span className="text-foreground">technology, design and entrepreneurship</span> — turning early ideas into experiences people remember.
+            I build <span className="text-foreground">scalable data platforms and intelligent systems</span> for enterprise and government — turning complex problems into AI-native products that ship.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
@@ -67,20 +67,19 @@ export const Hero = () => {
               <a href="#work">View Work <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" /></a>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-full border-border/60">
-              <a href="#contact">Contact</a>
+              <Link to="/resume">Résumé</Link>
             </Button>
             <Button asChild size="lg" variant="ghost" className="rounded-full">
-              <a href="#" download><Download className="mr-2 h-4 w-4" /> Resume</a>
+              <Link to="/philosophy"><Download className="mr-2 h-4 w-4" /> Product Philosophy</Link>
             </Button>
           </div>
 
-          {/* metrics */}
           <div className="mx-auto mt-20 grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-4">
             {[
-              { k: "8+", v: "Years building" },
-              { k: "30+", v: "Products shipped" },
-              { k: "12", v: "Industries" },
-              { k: "1M+", v: "Users impacted" },
+              { k: "10+", v: "Years building" },
+              { k: "12+", v: "GenAI products shipped" },
+              { k: "$2M+", v: "GenAI projects won" },
+              { k: "100+", v: "Enterprise clients" },
             ].map((m) => (
               <div key={m.v} className="rounded-2xl glass p-4">
                 <div className="font-display text-2xl font-bold text-gradient-primary md:text-3xl">{m.k}</div>
@@ -91,7 +90,6 @@ export const Hero = () => {
         </motion.div>
       </div>
 
-      {/* scroll hint */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
