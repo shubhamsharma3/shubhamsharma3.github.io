@@ -1,20 +1,20 @@
 import { motion } from "framer-motion";
-import { Bot, Compass, LineChart, Palette, Rocket, Code } from "lucide-react";
+import { Bot, Database, FileText, LineChart, ShieldCheck, Workflow } from "lucide-react";
 import { SectionHeader } from "./About";
 
 const services = [
-  { icon: Rocket, title: "Product Strategy", desc: "From insight to roadmap. Sharpen the wedge, focus the team, ship what matters." },
-  { icon: Bot, title: "AI Engineering", desc: "Production-grade LLM apps, agents, RAG and evals — designed to actually scale." },
-  { icon: Code, title: "Web & Mobile Dev", desc: "Performant, beautiful apps with Next.js, React Native and modern tooling." },
-  { icon: Palette, title: "Design Systems", desc: "Reusable UI foundations that move fast without sacrificing polish." },
-  { icon: LineChart, title: "Growth & GTM", desc: "Distribution loops, lifecycle, content engines — calm growth that compounds." },
-  { icon: Compass, title: "Founder Coaching", desc: "Hands-on advisory for early-stage founders navigating 0→1 chaos." },
+  { icon: Bot, title: "Generative AI Products", desc: "Production-grade GenAI: RAG, agents, copilots and multilingual assistants — designed for governance and scale." },
+  { icon: Database, title: "Data Platforms", desc: "Lakehouse architectures on Microsoft Fabric / Azure with standardized data products and serving APIs." },
+  { icon: ShieldCheck, title: "GovTech & Sovereign AI", desc: "Air-gapped, on-prem and compliance-first AI for defense, PSUs and state governments." },
+  { icon: Workflow, title: "Product & Strategy", desc: "From problem to roadmap to launch. Discovery, prioritization and 0→1 product execution." },
+  { icon: LineChart, title: "Analytics & BI", desc: "Microsoft Fabric, Power BI and modern analytics — from KPI design to executive dashboards." },
+  { icon: FileText, title: "Pre-sales & RFPs", desc: "Solutioning, proposal writing and pre-sales for enterprise and government deals." },
 ];
 
 export const Services = () => (
   <section id="services" className="relative py-32">
     <div className="container mx-auto px-6">
-      <SectionHeader eyebrow="Services" title="How I can help you ship." subtitle="Engagements range from rapid sprints to fractional partnerships." />
+      <SectionHeader eyebrow="What I do" title="Where I add leverage." subtitle="Engagements span product leadership, GenAI architecture, data platforms and pre-sales." />
 
       <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s, idx) => (
