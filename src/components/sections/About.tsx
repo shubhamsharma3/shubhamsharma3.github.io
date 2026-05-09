@@ -1,19 +1,19 @@
 import { motion } from "framer-motion";
-import { Code2, Cpu, Layers, Rocket, Sparkles, Wrench } from "lucide-react";
+import { Cpu, Database, Layers, LineChart, Sparkles, Workflow } from "lucide-react";
 
 const groups = [
-  { icon: Code2, title: "Engineering", items: ["TypeScript", "React", "Node.js", "Go", "Python", "Rust"] },
-  { icon: Cpu, title: "AI & ML", items: ["LLMs", "RAG", "Embeddings", "PyTorch", "Agents", "Eval"] },
-  { icon: Layers, title: "Product", items: ["Strategy", "0→1", "PMF", "Roadmaps", "Discovery", "Analytics"] },
-  { icon: Sparkles, title: "Design", items: ["Systems", "Motion", "Brand", "Figma", "Prototyping", "DX"] },
-  { icon: Rocket, title: "Growth", items: ["GTM", "SEO", "Lifecycle", "Content", "Pricing", "CRO"] },
-  { icon: Wrench, title: "Infra", items: ["AWS", "Vercel", "Postgres", "K8s", "Edge", "Observability"] },
+  { icon: Cpu, title: "Generative AI", items: ["Azure OpenAI", "RAG", "Agents", "Evals", "Vision", "Voice"] },
+  { icon: Database, title: "Data Platforms", items: ["Microsoft Fabric", "Lakehouse", "Spark", "Delta", "Postgres", "APIs"] },
+  { icon: Layers, title: "Product", items: ["Strategy", "0→1", "Discovery", "Roadmaps", "Pre-sales", "RFPs"] },
+  { icon: Workflow, title: "Architecture", items: ["Azure", "On-prem", "Air-gapped", "Security", "Scale", "MLOps"] },
+  { icon: LineChart, title: "Analytics & BI", items: ["Power BI", "MSBI", "Fabric", "Dashboards", "KPIs", "Modeling"] },
+  { icon: Sparkles, title: "Leadership", items: ["P&L", "Hiring", "CoEs", "Workshops", "Govt accounts", "Microsoft"] },
 ];
 
 export const About = () => (
   <section id="about" className="relative py-32">
     <div className="container mx-auto px-6">
-      <SectionHeader eyebrow="About" title="A founder who codes, a builder who designs." />
+      <SectionHeader eyebrow="About" title="A product leader who ships AI in the real world." />
 
       <div className="mt-16 grid gap-10 lg:grid-cols-12">
         <motion.div
@@ -24,17 +24,17 @@ export const About = () => (
           className="lg:col-span-5"
         >
           <p className="text-xl leading-relaxed text-foreground/90">
-            I'm <span className="text-gradient-primary font-semibold">Shubham</span> — a technologist and entrepreneur obsessed with building products that compound. I sit between engineering, design, and business, shipping work that feels considered.
+            I'm <span className="text-gradient-primary font-semibold">Shubham</span> — a Product & AI leader with 10+ years building data platforms and Generative AI products for enterprise and government in India.
           </p>
           <p className="mt-6 text-muted-foreground">
-            Over the past decade I've co-founded ventures, led product at fast-moving teams, and shipped tools used by people across the world. My mission is simple: build things that respect the user's time and feel inevitable in hindsight.
+            I've established GenAI practices from scratch, partnered with Microsoft on cutting-edge enterprise rollouts, and led ~$2M of GenAI projects across PSUs, state governments, defense, EdTech and energy. Currently driving product & strategy at KFin Technologies.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-3 max-w-md">
             {[
-              { k: "Mission", v: "Useful, beautiful software" },
-              { k: "Style", v: "Calm, fast, opinionated" },
+              { k: "Currently", v: "Product & Strategy · KFin" },
+              { k: "Practice", v: "GenAI · Data · Platforms" },
               { k: "Based in", v: "India · Remote" },
-              { k: "Currently", v: "Building in AI" },
+              { k: "Partners", v: "Microsoft · Govt · Enterprise" },
             ].map((x) => (
               <div key={x.k} className="rounded-xl border border-border/60 p-3">
                 <div className="font-mono text-[10px] uppercase text-muted-foreground">{x.k}</div>
