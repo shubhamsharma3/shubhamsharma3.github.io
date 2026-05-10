@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting…</title>
+    <script>
+      // GitHub Pages SPA fallback for HashRouter:
+      // strip any path the user typed and redirect to the hash root.
+      var path = window.location.pathname.replace(/\/+$/, "");
+      var base = path.split("/").slice(0, 2).join("/") || "/";
+      window.location.replace(base + "/#" + (path.slice(base.length) || "/"));
+    </script>
+  </head>
+  <body></body>
+</html>
