@@ -72,7 +72,7 @@ export const Hero = () => {
                 <Link to="/case-studies">Read Case Studies</Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="rounded-full">
-                <a href="/shubham-sharma-resume.pdf" download><Download className="mr-2 h-4 w-4" /> Résumé</a>
+                <a href={`${import.meta.env.BASE_URL}shubham-sharma-resume.pdf`} download><Download className="mr-2 h-4 w-4" /> Résumé</a>
               </Button>
             </div>
 
