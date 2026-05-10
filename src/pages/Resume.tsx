@@ -33,6 +33,13 @@ const Resume = () => (
             <p className="mt-3 text-lg text-muted-foreground">Product & AI Leader · 10+ years building data and GenAI products at scale</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <a
+                href={`${import.meta.env.BASE_URL}shubham-sharma-resume.pdf`}
+                download
+                className="inline-flex items-center gap-2 rounded-full bg-gradient-primary px-5 py-2 text-sm font-medium text-primary-foreground shadow-glow transition-opacity hover:opacity-90"
+              >
+                <Download className="h-4 w-4" /> Download PDF
+              </a>
+              <a
                 href="https://www.linkedin.com/in/shubhamjksharma/"
                 target="_blank"
                 rel="noreferrer"
