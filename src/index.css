@@ -4,62 +4,63 @@
 
 @layer base {
   :root {
-    --background: 30 20% 98%;
-    --foreground: 240 10% 6%;
+    /* Light mode — warm off-white canvas with rich ink + jewel accents */
+    --background: 36 30% 97%;
+    --foreground: 240 18% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 6%;
+    --card-foreground: 240 18% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 6%;
+    --popover-foreground: 240 18% 10%;
 
-    --primary: 252 95% 62%;
+    --primary: 256 80% 56%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 280 95% 70%;
+    --primary-glow: 282 85% 64%;
 
-    --secondary: 240 5% 96%;
-    --secondary-foreground: 240 10% 10%;
+    --secondary: 36 25% 94%;
+    --secondary-foreground: 240 18% 12%;
 
-    --muted: 240 5% 95%;
-    --muted-foreground: 240 4% 45%;
+    --muted: 36 22% 92%;
+    --muted-foreground: 240 8% 38%;
 
-    --accent: 195 95% 55%;
+    --accent: 192 90% 42%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 56%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 252 95% 62%;
+    --border: 36 18% 86%;
+    --input: 36 18% 86%;
+    --ring: 256 80% 56%;
 
     --radius: 1rem;
 
     --surface: 0 0% 100%;
-    --surface-glass: 0 0% 100% / 0.6;
-    --surface-elev: 240 10% 98%;
+    --surface-glass: 36 30% 99% / 0.72;
+    --surface-elev: 36 25% 96%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(252 95% 62%), hsl(280 95% 70%) 50%, hsl(195 95% 55%));
-    --gradient-mesh: radial-gradient(at 20% 20%, hsl(252 95% 62% / 0.25), transparent 50%),
-                     radial-gradient(at 80% 10%, hsl(195 95% 55% / 0.25), transparent 50%),
-                     radial-gradient(at 50% 80%, hsl(280 95% 70% / 0.25), transparent 50%);
-    --gradient-text: linear-gradient(135deg, hsl(240 10% 6%), hsl(252 95% 62%) 60%, hsl(195 95% 55%));
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.8), hsl(240 10% 98% / 0.4));
+    --gradient-primary: linear-gradient(135deg, hsl(256 80% 56%), hsl(282 85% 64%) 50%, hsl(192 90% 42%));
+    --gradient-mesh: radial-gradient(at 18% 18%, hsl(256 80% 56% / 0.18), transparent 55%),
+                     radial-gradient(at 82% 8%, hsl(192 90% 42% / 0.16), transparent 55%),
+                     radial-gradient(at 50% 92%, hsl(282 85% 64% / 0.18), transparent 55%);
+    --gradient-text: linear-gradient(135deg, hsl(240 18% 10%), hsl(256 80% 50%) 55%, hsl(192 90% 38%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100% / 0.85), hsl(36 25% 96% / 0.55));
 
-    --shadow-glow: 0 0 60px hsl(252 95% 62% / 0.35);
-    --shadow-elev: 0 24px 60px -20px hsl(240 30% 30% / 0.18);
-    --shadow-card: 0 8px 30px -8px hsl(240 30% 30% / 0.12);
+    --shadow-glow: 0 0 60px hsl(256 80% 56% / 0.30);
+    --shadow-elev: 0 24px 60px -20px hsl(256 40% 30% / 0.22);
+    --shadow-card: 0 8px 30px -10px hsl(256 30% 25% / 0.14);
 
     --transition-smooth: cubic-bezier(0.22, 1, 0.36, 1);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 36 30% 97%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 36 25% 94%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: 36 18% 86%;
+    --sidebar-ring: 256 80% 56%;
   }
 
   .dark {

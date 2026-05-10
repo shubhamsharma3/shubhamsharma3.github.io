@@ -7,11 +7,10 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "/#about", label: "About" },
-  { href: "/#work", label: "Work" },
+  { href: "/#work", label: "Portfolio" },
   { href: "/#experience", label: "Experience" },
-  { href: "/#services", label: "Services" },
+  { href: "/case-studies", label: "Case Studies", route: true },
   { href: "/resume", label: "Résumé", route: true },
-  { href: "/philosophy", label: "Philosophy", route: true },
   { href: "/#contact", label: "Contact" },
 ];
 
