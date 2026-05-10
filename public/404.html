@@ -3,12 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>Redirecting…</title>
+    <!--
+      GitHub Pages SPA fallback (single-page-apps-for-github-pages technique).
+      Encodes the path into the query so index.html can restore it.
+      Set pathSegmentsToKeep to 1 if hosted under a project subpath like
+      https://<user>.github.io/<repo>/, otherwise 0 for custom domains.
+    -->
     <script>
-      // GitHub Pages SPA fallback for HashRouter:
-      // strip any path the user typed and redirect to the hash root.
-      var path = window.location.pathname.replace(/\/+$/, "");
-      var base = path.split("/").slice(0, 2).join("/") || "/";
-      window.location.replace(base + "/#" + (path.slice(base.length) || "/"));
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
     </script>
   </head>
   <body></body>
