@@ -1,4 +1,4 @@
-import { ArrowLeft, Linkedin, Mail } from "lucide-react";
+import { ArrowLeft, Download, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ThemeProvider } from "@/components/ThemeProvider";
