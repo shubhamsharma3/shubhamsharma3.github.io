@@ -103,40 +103,63 @@ export const Projects = () => {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 flex flex-col gap-6 relative">
           {filtered.map((p, idx) => (
             <motion.div
               key={p.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: (idx % 6) * 0.05 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="sticky top-24"
+              style={{
+                top: `calc(6rem + ${idx * 1.5}rem)`,
+                zIndex: idx + 1,
+              }}
             >
               <Link
                 to={`/work/${p.id}`}
-                className="group relative block overflow-hidden card-premium p-0"
+                className="group relative flex flex-col md:flex-row overflow-hidden card-premium p-0 border-border/50 bg-background/95 backdrop-blur-xl shadow-2xl transition-transform hover:-translate-y-1"
               >
-                <Thumbnail work={p} />
-                <div className="p-5">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                      {p.tags.join(" · ")}
-                    </span>
-                    <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                <div className="md:w-5/12 shrink-0 border-b md:border-b-0 md:border-r border-border/50">
+                  <Thumbnail work={p} />
+                </div>
+                <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-3">
+                        <span className="font-display text-4xl font-bold text-muted-foreground/30 leading-none">
+                          {(idx + 1).toString().padStart(2, "0")}
+                        </span>
+                        <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
+                          {p.client}
+                        </span>
+                      </div>
+                      <span className="rounded-full border border-border/60 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors flex items-center gap-1">
+                        View Project <ArrowUpRight className="h-3 w-3" />
+                      </span>
+                    </div>
+                    
+                    <h3 className="mt-4 font-display text-2xl font-bold leading-tight">
+                      {p.title}
+                    </h3>
+                    <p className="mt-3 text-base text-muted-foreground max-w-xl">
+                      {p.subtitle}
+                    </p>
                   </div>
-                  <p className="mt-2 text-sm text-foreground/80">{p.subtitle}</p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {p.stack.slice(0, 4).map((s) => (
+                  
+                  <div className="mt-8 flex flex-wrap gap-2">
+                    {p.stack.map((s) => (
                       <span
                         key={s}
-                        className="rounded-md border border-border/60 bg-secondary/40 px-2 py-0.5 font-mono text-[10px] text-muted-foreground"
+                        className="rounded-md bg-secondary/50 px-2.5 py-1 font-mono text-[10px] text-foreground/70"
                       >
                         {s}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-0 ring-primary/0 transition-all duration-500 group-hover:ring-2 group-hover:ring-primary/40" />
+                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-primary/0 transition-all duration-500 group-hover:ring-primary/20" />
               </Link>
             </motion.div>
           ))}
