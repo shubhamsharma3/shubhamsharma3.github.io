@@ -7,7 +7,7 @@ import { componentTagger } from "lovable-tagger";
 // Using relative base so the build works on GitHub Pages (project sites)
 // as well as custom domains and the Lovable preview.
 export default defineConfig(({ mode }) => ({
-  base: "./",
+  base: "/",
   server: {
     host: "::",
     port: 8080,
