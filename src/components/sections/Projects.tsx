@@ -9,7 +9,7 @@ import { works, workCategories, type Work } from "@/data/works";
 const Thumbnail = ({ work }: { work: Work }) => {
   const seed = work.id.length;
   return (
-    <div className={`relative h-52 overflow-hidden bg-gradient-to-br ${work.gradient}`}>
+    <div className={`relative h-52 md:h-full min-h-[240px] w-full overflow-hidden bg-gradient-to-br ${work.gradient}`}>
       {/* radial highlight */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.4),transparent_55%)]" />
       {/* moving grid */}
