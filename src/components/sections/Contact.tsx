@@ -46,30 +46,31 @@ export const Contact = () => {
             viewport={{ once: true }}
             className="lg:col-span-2 space-y-4"
           >
-            <a href="mailto:hello@shubhamjksharma.com" className="card-premium flex items-center gap-4 p-5">
+            <a href="mailto:shubhamjksharma.portfolio@gmail.com" className="card-premium flex items-center gap-4 p-5">
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary text-primary-foreground"><Mail className="h-5 w-5" /></div>
               <div>
                 <div className="text-xs font-mono text-muted-foreground">Email</div>
-                <div className="font-medium">hello@shubhamjksharma.com</div>
+                <div className="font-medium">shubhamjksharma.portfolio@gmail.com</div>
               </div>
             </a>
-            <a href="#" className="card-premium flex items-center gap-4 p-5">
+            {/* <a href="#" className="card-premium flex items-center gap-4 p-5">
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-primary text-primary-foreground"><Calendar className="h-5 w-5" /></div>
               <div>
                 <div className="text-xs font-mono text-muted-foreground">Book a call</div>
                 <div className="font-medium">30-min intro · Calendly</div>
               </div>
-            </a>
+            </a> */}
             <div className="flex gap-2 pt-2">
-              {[Twitter, Linkedin, Github].map((Icon, i) => (
-                <a key={i} href="#" className="grid h-11 w-11 place-items-center rounded-xl border border-border/60 transition-colors hover:bg-secondary">
+              {[Linkedin].map((Icon, i) => (
+                <a key={i} href="https://www.linkedin.com/in/shubhamjksharma/" target="_blank"
+      rel="noopener noreferrer" className="grid h-11 w-11 place-items-center rounded-xl border border-border/60 transition-colors hover:bg-secondary">
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </motion.div>
 
-          <motion.form
+          {/* <motion.form
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -93,7 +94,7 @@ export const Contact = () => {
             <Button disabled={loading} className="w-full rounded-full bg-gradient-primary text-primary-foreground hover:opacity-90" size="lg">
               {loading ? "Sending…" : <>Send message <Send className="ml-2 h-4 w-4" /></>}
             </Button>
-          </motion.form>
+          </motion.form> */}
         </div>
       </div>
     </section>

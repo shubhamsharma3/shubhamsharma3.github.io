@@ -3,7 +3,7 @@ import { SectionHeader } from "./About";
 import { clients } from "@/data/experience";
 
 export const Testimonials = () => (
-  <section className="relative py-32">
+  <section className="relative py-1">
     <div className="container mx-auto px-6">
       <SectionHeader
         eyebrow="Trusted by"
@@ -11,7 +11,7 @@ export const Testimonials = () => (
         subtitle="Selected organisations I've partnered with on AI, data and product engagements."
       />
 
-      <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border/60 bg-border/60 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      {/* <div className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border/60 bg-border/60 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {clients.map((c, i) => (
           <motion.div
             key={c}
@@ -26,9 +26,9 @@ export const Testimonials = () => (
             </span>
           </motion.div>
         ))}
-      </div>
+      </div> */}
 
-      <div className="relative mt-16 overflow-hidden">
+      {/* <div className="relative mt-16 overflow-hidden">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
         <div className="flex w-max animate-marquee gap-12 py-6">
@@ -38,7 +38,40 @@ export const Testimonials = () => (
             </span>
           ))}
         </div>
-      </div>
+      </div> */}
+
+
+      <div className="relative mt-16 overflow-hidden">
+
+  <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
+
+  <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+
+<div className="flex w-max animate-marquee items-center gap-16 py-6">
+
+  {[...clients, ...clients].map((client, i) => (
+
+   <img
+  key={i}
+  src={client.image}
+  alt={client.name}
+  className="
+    h-10
+    w-auto
+    object-contain
+    opacity-90
+    transition-all
+    duration-300
+    hover:scale-105
+    hover:opacity-100
+  "
+/>
+
+  ))}
+
+</div>
+
+</div>
     </div>
   </section>
 );

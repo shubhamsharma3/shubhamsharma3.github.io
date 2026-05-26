@@ -1,167 +1,379 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { works } from "@/data/works";
 import { Link } from "react-router-dom";
-import { SectionHeader } from "./About";
-import { works, workCategories, type Work } from "@/data/works";
-
-// Decorative animated thumbnail rendered per category — keeps every card unique.
-const Thumbnail = ({ work }: { work: Work }) => {
-  const seed = work.id.length;
-  return (
-    <div className={`relative h-52 md:h-full min-h-[240px] w-full overflow-hidden bg-gradient-to-br ${work.gradient}`}>
-      {/* radial highlight */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.4),transparent_55%)]" />
-      {/* moving grid */}
-      <div className="absolute inset-0 grid-pattern opacity-25 mix-blend-overlay" />
-
-      {/* SVG art layer per category */}
-      <svg
-        className="absolute inset-0 h-full w-full opacity-70 transition-transform duration-700 group-hover:scale-110"
-        viewBox="0 0 400 200"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <linearGradient id={`g-${work.id}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="white" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="white" stopOpacity="0.05" />
-          </linearGradient>
-        </defs>
-        {Array.from({ length: 6 }).map((_, i) => (
-          <circle
-            key={i}
-            cx={40 + ((i * 67 + seed * 13) % 320)}
-            cy={30 + ((i * 41 + seed * 7) % 140)}
-            r={4 + (i % 3) * 3}
-            fill={`url(#g-${work.id})`}
-          />
-        ))}
-        {Array.from({ length: 5 }).map((_, i) => (
-          <line
-            key={`l${i}`}
-            x1={20 + i * 70}
-            y1={180}
-            x2={60 + i * 70}
-            y2={20}
-            stroke="white"
-            strokeOpacity="0.18"
-            strokeWidth="1"
-          />
-        ))}
-      </svg>
-
-      {/* Top-right meta */}
-      <div className="absolute right-3 top-3 flex gap-1.5">
-        <span className="rounded-full bg-black/35 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white backdrop-blur">
-          {work.year}
-        </span>
-        <span className="rounded-full bg-white/15 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-white backdrop-blur">
-          {work.category}
-        </span>
-      </div>
-
-      {/* Bottom shade + title */}
-      <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-black/65 via-black/25 to-transparent" />
-      <div className="absolute bottom-4 left-4 right-4">
-        <div className="font-mono text-[10px] uppercase tracking-wider text-white/70">{work.client}</div>
-        <div className="mt-1 font-display text-xl font-bold leading-tight text-white drop-shadow-lg">
-          {work.title}
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export const Projects = () => {
-  const [active, setActive] = useState<string>("All");
-  const filtered = active === "All" ? works : works.filter((p) => p.category === active);
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  const prev = () => {
+    setActive((prev) =>
+      prev === 0 ? works.length - 1 : prev - 1
+    );
+  };
+
+  const next = () => {
+    setActive((prev) =>
+      prev === works.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  useEffect(() => {
+    if (paused) return;
+
+    const interval = setInterval(() => {
+      next();
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [paused]);
 
   return (
-    <section id="work" className="relative py-32">
-      <div className="absolute inset-0 -z-10 bg-mesh opacity-50" />
-      <div className="container mx-auto px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
-          <SectionHeader
-            eyebrow="Portfolio"
-            title="Work that shipped, at scale."
-            subtitle="A decade of building data and AI products for enterprise and government — across PSUs, state governments, defense, EdTech and energy."
-          />
-          <div className="flex flex-wrap gap-2">
-            {workCategories.map((c) => (
-              <button
-                key={c}
-                onClick={() => setActive(c)}
-                className={`rounded-full border px-3 py-1.5 text-sm transition-all ${
-                  active === c
-                    ? "border-primary bg-gradient-primary text-primary-foreground shadow-glow"
-                    : "border-border/60 text-muted-foreground hover:text-foreground"
-                }`}
+    <section
+      id="projects"
+      className="relative py-10 overflow-hidden"
+    >
+       <div className="absolute inset-0 -z-10 bg-mesh opacity-50" />
+      {/* Ambient Glow */}
+      {/* <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(120,119,198,0.12),transparent_45%)]" /> */}
+
+      <div className="relative z-10 max-w-[1700px] mx-auto">
+        {/* Header */}
+        <div className="px-8 mb-10">
+  <motion.div
+   
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+    className="max-w-4xl"
+  >
+    {/* Eyebrow */}
+    <div className="inline-flex items-center gap-2 rounded-full border border-border/60 bg-secondary/40 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+      <span className="h-1 w-1 rounded-full bg-primary" />
+      Portfolio
+    </div>
+
+    {/* Heading */}
+    <h2 className="mt-5 font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+      <span className="text-gradient">
+        Work that shipped, 
+        at scale.
+      </span>
+    </h2>
+
+    {/* Description */}
+    <p className="mt-4 text-lg text-muted-foreground max-w-3xl">
+      Enterprise AI, data and digital transformation platforms built across
+      government, energy, aviation, defense and education ecosystems.
+    </p>
+    
+  </motion.div>
+</div>
+
+{/* Controls */}
+<div className="flex justify-end px-8 -mt-4 mb-1 gap-4">
+  <button
+    onClick={prev}
+    className="group w-14 h-14 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center text-white"
+  >
+    <ChevronLeft
+      size={22}
+      className="transition-transform duration-300 group-hover:-translate-x-0.5"
+    />
+  </button>
+
+  <button
+    onClick={next}
+    className="group w-14 h-14 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl hover:bg-white hover:text-black transition-all duration-300 flex items-center justify-center text-white"
+  >
+    <ChevronRight
+      size={22}
+      className="transition-transform duration-300 group-hover:translate-x-0.5"
+    />
+  </button>
+</div>
+
+        {/* Carousel */}
+        <div
+          className="relative h-[430px] flex items-center justify-center overflow-visible"
+          style={{
+            perspective: "1400px",
+          }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {works.map((work, index) => {
+            const offset =
+              (index - active + works.length) % works.length;
+
+            let position = offset;
+
+            if (position > works.length / 2) {
+              position -= works.length;
+            }
+
+            const isActive = position === 0;
+
+            return (
+              <motion.div
+                key={work.id}
+                animate={{
+                  x:
+                    position === 0
+                      ? 0
+                      : position > 0
+                      ? 500
+                      : -500,
+
+                  scale:
+                    position === 0 ? 1 : 0.72,
+
+                  rotateY:
+                    position === 0
+                      ? 0
+                      : position > 0
+                      ? -58
+                      : 58,
+
+                  z:
+                    position === 0
+                      ? 0
+                      : -260,
+
+                  opacity:
+                    Math.abs(position) > 1
+                      ? 0
+                      : position === 0
+                      ? 1
+                      : 0.6,
+
+                  zIndex:
+                    position === 0 ? 30 : 10,
+
+                  
+                }}
+                transition={{
+                  duration: 0.9,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="absolute w-[52vw] max-w-[720px]"
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
               >
-                {c}
-              </button>
-            ))}
-          </div>
+                {/* Glow */}
+                {/* {isActive && (
+                  <div className="absolute inset-0 bg-pink-500/10 opacity-60 scale-110 rounded-full" />
+                )} */}
+
+                <motion.div
+                  whileHover={
+                    isActive
+                      ? {
+                          scale: 1.02,
+                          y: -6,
+                          rotateX: -2,
+                        }
+                      : {}
+                  }
+                  className="relative h-[430px] rounded-[36px] overflow-hidden border border-white/10 bg-[#0A0A0F]/90 backdrop-blur-sm shadow-[0_40px_120px_rgba(0,0,0,0.65)]"
+                >
+                  {/* Reflection */}
+                  <div className="absolute inset-y-0 left-0 w-[1px] bg-white/10" />
+                  <div className="absolute top-0 left-0 w-full h-[1px] bg-white/10" />
+
+                  {/* Gradient Glow */}
+                  <div
+                    className={`absolute inset-0 opacity-20 bg-gradient-to-br ${work.gradient}`}
+                  />
+
+                  {/* Header */}
+                  <div className="relative z-10 flex items-center justify-between px-5 py-3 border-b border-white/10">
+                    <div className="flex items-center gap-3 min-w-0">
+                      <div className="text-4xl font-black text-white/20 shrink-0">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+
+                      <div className="min-w-0">
+                        <p className="uppercase tracking-[0.3em] text-[9px] text-white/40 mb-1">
+                          {work.category}
+                        </p>
+
+                        <h2 className="text-lg font-bold leading-tight text-white">
+                          {work.title}
+                        </h2>
+
+                        <p className="text-white/50 text-xs truncate max-w-[240px]">
+                          {work.client}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* <button className="border border-white/20 px-3 py-2 rounded-full text-[10px] hover:bg-white hover:text-black transition-all duration-300 shrink-0">
+                      View Case Study
+                    </button> */}
+                    <Link to={`/work/${work.id}`}>
+  <button
+    className="
+      group
+      border border-violet-500/20
+      bg-violet-500/5
+      px-4 py-2
+      rounded-full
+      text-[10px]
+      uppercase
+      tracking-[0.22em]
+      text-violet-300
+      hover:bg-violet-500/10
+      hover:border-violet-400/40
+      hover:text-white
+      transition-all duration-300
+      shrink-0
+      flex items-center gap-2
+      shadow-[0_0_20px_rgba(139,92,246,0.12)]
+    "
+  >
+    View Project
+
+    <span
+      className="
+        transition-transform duration-300
+        group-hover:translate-x-0.5
+        group-hover:-translate-y-0.5
+      "
+    >
+      ↗
+    </span>
+  </button>
+</Link>
+                  </div>
+
+                  {/* Content */}
+                  <div className="relative z-10 h-[calc(100%-68px)] grid grid-cols-[1.55fr_0.7fr] gap-3 px-4 pt-4 pb-7 overflow-hidden">
+                    {/* Hero */}
+                    <div
+                      className={`rounded-[24px] overflow-hidden h-full bg-gradient-to-br ${work.gradient} relative`}
+                    >
+                      {/* Overlay */}
+                      <div className="absolute inset-0 bg-black/15" />
+                      {/* Thumbnail */}
+<img
+  src={work.thumbnail}
+  alt={work.title}
+  className="absolute inset-0 h-full w-full object-cover object-top"
+  style={{
+    imageRendering: "high-quality",
+    backfaceVisibility: "hidden",
+    transform: "translateZ(0)",
+  }}
+/>
+
+                      {/* Grid */}
+                      <div
+                        className="absolute inset-0 opacity-10"
+                        style={{
+                          backgroundImage:
+                            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px)",
+                          backgroundSize: "24px 24px",
+                        }}
+                      />
+
+                      {/* Pills */}
+                      {/* <div className="absolute top-3 left-3 flex gap-2">
+                        <div className="h-7 w-16 rounded-full bg-white/10 backdrop-blur-md border border-white/10" />
+
+                        <div className="h-7 w-12 rounded-full bg-white/10 backdrop-blur-md border border-white/10" />
+                      </div> */}
+
+                      {/* Floating Glass */}
+                      {/* <div className="absolute bottom-3 right-3 w-20 h-12 rounded-xl bg-black/20 backdrop-blur-xl border border-white/10" /> */}
+
+                      {/* Hero Content */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-4">
+                        <div className="max-w-sm">
+                          <p className="uppercase tracking-[0.22em] text-[9px] text-white/60 mb-2">
+                            {/* Enterprise AI Platform */}
+                          </p>
+
+                          <h3 className="text-lg font-black leading-tight text-white mb-2">
+                            {work.subtitle}
+                          </h3>
+
+                          <p className="text-[11px] leading-snug text-white/75 line-clamp-2">
+                            {work.summary}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right Column */}
+                    <div className="flex flex-col gap-3 h-full">
+                      {/* Stack */}
+                      <div className="flex flex-col flex-1 min-h-0 rounded-[20px] bg-white/5 border border-white/10 p-3 backdrop-blur-xl overflow-hidden">
+                        <p className="uppercase tracking-[0.22em] text-[9px] text-white/40 mb-2">
+                          Stack
+                        </p>
+
+                        <div className="flex flex-wrap gap-1.5">
+                          {work.stack
+                            .slice(0, 5)
+                            .map((tech: string) => (
+                              <span
+                                key={tech}
+                                className="px-2.5 py-1 rounded-full bg-white/10 border border-white/10 text-[9px] text-white/80"
+                              >
+                                {tech}
+                              </span>
+                            ))}
+                        </div>
+                      </div>
+
+                      {/* Impact */}
+                      <div className="flex flex-col flex-1 min-h-0 rounded-[20px] bg-white/5 border border-white/10 p-3 backdrop-blur-xl overflow-hidden">
+                        <p className="uppercase tracking-[0.22em] text-[9px] text-white/40 mb-2">
+                          Impact
+                        </p>
+
+                        <div className="space-y-1">
+                          {work.impact
+                            .slice(0, 2)
+                            .map((item: string) => (
+                              <div
+                                key={item}
+                                className="flex gap-2 text-white/80"
+                              >
+                                <div className="w-1 h-1 rounded-full bg-white mt-1.5 shrink-0" />
+
+                                <p className="leading-snug text-[10px]">
+                                  {item}
+                                </p>
+                              </div>
+                            ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        <div className="mt-16 flex flex-col gap-6 relative">
-          {filtered.map((p, idx) => (
-            <motion.div
-              key={p.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="sticky top-24"
-              style={{
-                top: `calc(6rem + ${idx * 1.5}rem)`,
-                zIndex: idx + 1,
-              }}
-            >
-              <Link
-                to={`/work/${p.id}`}
-                className="group relative flex flex-col md:flex-row overflow-hidden card-premium p-0 border-border/50 bg-background/95 backdrop-blur-xl shadow-2xl transition-transform hover:-translate-y-1"
-              >
-                <div className="md:w-5/12 shrink-0 border-b md:border-b-0 md:border-r border-border/50">
-                  <Thumbnail work={p} />
-                </div>
-                <div className="p-6 md:p-8 flex flex-col justify-between flex-1">
-                  <div>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center gap-3">
-                        <span className="font-display text-4xl font-bold text-muted-foreground/30 leading-none">
-                          {(idx + 1).toString().padStart(2, "0")}
-                        </span>
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
-                          {p.client}
-                        </span>
-                      </div>
-                      <span className="rounded-full border border-border/60 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary transition-colors flex items-center gap-1">
-                        View Project <ArrowUpRight className="h-3 w-3" />
-                      </span>
-                    </div>
-                    
-                    <h3 className="mt-4 font-display text-2xl font-bold leading-tight">
-                      {p.title}
-                    </h3>
-                    <p className="mt-3 text-base text-muted-foreground max-w-xl">
-                      {p.subtitle}
-                    </p>
-                  </div>
-                  
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {p.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="rounded-md bg-secondary/50 px-2.5 py-1 font-mono text-[10px] text-foreground/70"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-primary/0 transition-all duration-500 group-hover:ring-primary/20" />
-              </Link>
-            </motion.div>
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {works.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActive(index)}
+              className={`transition-all duration-300 rounded-full ${
+                active === index
+                  ? "w-8 h-2 bg-white"
+                  : "w-2 h-2 bg-white/30 hover:bg-white/60"
+              }`}
+            />
           ))}
         </div>
       </div>

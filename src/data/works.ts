@@ -1,11 +1,12 @@
 export type Work = {
   id: string;
   title: string;
-  subtitle: string;
+  // subtitle: string;
+  thumbnail: string;
   category: "GovTech" | "Enterprise AI" | "EdTech" | "Energy" | "Defense" | "Aviation" | "HealthTech";
   year: string;
   client: string;
-  summary: string;
+  // summary: string;
   problem: string;
   approach: string[];
   impact: string[];
@@ -18,11 +19,12 @@ export const works: Work[] = [
   {
     id: "hpcl-ai-recruitment",
     title: "Generative AI Recruitment Platform",
-    subtitle: "Hiring at national scale for HPCL",
+    // subtitle: "Hiring at national scale for HPCL",
+    thumbnail: "/projects/hpcl-ai-platform.png",
     category: "Enterprise AI",
     year: "2024",
     client: "Hindustan Petroleum (HPCL)",
-    summary: "An AI-native recruitment platform that automates resume screening, candidate ranking and compliance for one of India's largest PSU hiring drives.",
+    // summary: "An AI-native recruitment platform that automates resume screening, candidate ranking and compliance for one of India's largest PSU hiring drives.",
     problem: "Manual screening of hundreds of thousands of applications was bottlenecking time-to-hire and creating compliance risk in a highly audited PSU process.",
     approach: [
       "Resume parsing and entity extraction with Azure Document Intelligence",
@@ -42,11 +44,12 @@ export const works: Work[] = [
   {
     id: "punjab-govt-dogr-generative-ai-chatbot",
     title: "Punjab DoGR Citizen Chatbot",
-    subtitle: "Multilingual GenAI for state governance",
+    // subtitle: "Multilingual GenAI for state governance",
+    thumbnail: "/projects/punjab-ai-platform.png",
     category: "GovTech",
     year: "2024",
     client: "Department of Governance Reforms, Punjab",
-    summary: "A multilingual, Azure-native GenAI assistant making state services discoverable and usable in Punjabi, Hindi and English.",
+    // summary: "A multilingual, Azure-native GenAI assistant making state services discoverable and usable in Punjabi, Hindi and English.",
     problem: "Citizens struggled to navigate fragmented service portals across multiple languages and departments.",
     approach: [
       "RAG over departmental knowledge with strict source grounding",
@@ -66,11 +69,12 @@ export const works: Work[] = [
   {
     id: "powergrid-generative-ai-chatbot",
     title: "PowerGrid Knowledge Chatbot",
-    subtitle: "Conversational ops for India's grid",
+    // subtitle: "Conversational ops for India's grid",
+    thumbnail: "/projects/powergrid-ai-platform.png",
     category: "Energy",
     year: "2024",
     client: "Power Grid Corporation of India",
-    summary: "A document-grounded GenAI assistant giving engineers conversational access to operational and maintenance knowledge.",
+    // summary: "A document-grounded GenAI assistant giving engineers conversational access to operational and maintenance knowledge.",
     problem: "Critical SOPs and manuals were locked in PDFs, slowing field engineers during high-stakes operations.",
     approach: [
       "Hybrid retrieval over thousands of technical documents",
@@ -90,11 +94,12 @@ export const works: Work[] = [
   {
     id: "ignou-multilingual-ai-chatbot",
     title: "IGNOU Swayam Multilingual Tutor",
-    subtitle: "GenAI for India's largest open university",
+    // subtitle: "GenAI for India's largest open university",
+    thumbnail: "/projects/ignou-ai-platform.png",
     category: "EdTech",
     year: "2024",
     client: "IGNOU · Swayam",
-    summary: "A multilingual learning assistant grounded in Swayam course documents and lecture videos — built for students and teachers at national scale.",
+    // summary: "A multilingual learning assistant grounded in Swayam course documents and lecture videos — built for students and teachers at national scale.",
     problem: "Learners across India needed contextual help across course material in multiple languages, beyond what static PDFs and videos could offer.",
     approach: [
       "RAG over course PDFs, transcripts and video timestamps",
@@ -114,11 +119,12 @@ export const works: Work[] = [
   {
     id: "nsdc-jobx-generative-ai-platform",
     title: "NSDC JobX AI Job Matching",
-    subtitle: "AI recruitment for India's skill mission",
+    // subtitle: "AI recruitment for India's skill mission",
+    thumbnail: "/projects/nsdc-ai-platform.png",
     category: "GovTech",
     year: "2024",
     client: "National Skill Development Corporation",
-    summary: "A GenAI-powered job matching platform layered on the JobX portal — intelligent resume analysis, recommendations and recruiter insights.",
+    // summary: "A GenAI-powered job matching platform layered on the JobX portal — intelligent resume analysis, recommendations and recruiter insights.",
     problem: "Millions of skilled candidates and thousands of recruiters needed smarter matching beyond keyword filters.",
     approach: [
       "Skill graph extracted from resumes and JDs",
@@ -138,11 +144,12 @@ export const works: Work[] = [
   {
     id: "ai-rfp-generation-platform",
     title: "AI RFP Generation Platform",
-    subtitle: "Proposal automation for MPSeDC",
+    // subtitle: "Proposal automation for MPSeDC",
+      thumbnail: "/projects/mpsedc-ai-platform.png",
     category: "Enterprise AI",
     year: "2024",
     client: "MP State Electronics Development Corp.",
-    summary: "An AI-powered platform that drafts, manages and governs RFPs end-to-end — from problem statement to compliant proposal.",
+    // summary: "An AI-powered platform that drafts, manages and governs RFPs end-to-end — from problem statement to compliant proposal.",
     problem: "RFP creation was slow, inconsistent and dependent on a few experts — delaying critical procurement cycles.",
     approach: [
       "LLM-assisted clause and section generation",
@@ -162,11 +169,12 @@ export const works: Work[] = [
   {
     id: "citiustech-generative-ai-tutor",
     title: "Personalized AI Tutor Platform",
-    subtitle: "Adaptive learning for CitiusTech",
+    // subtitle: "Adaptive learning for CitiusTech",
+    thumbnail: "/projects/aitutor-ai-platform.png",
     category: "HealthTech",
     year: "2024",
     client: "CitiusTech",
-    summary: "A multi-phase GenAI tutor that personalizes upskilling for healthcare engineers using knowledge graphs and adaptive reasoning.",
+    // summary: "A multi-phase GenAI tutor that personalizes upskilling for healthcare engineers using knowledge graphs and adaptive reasoning.",
     problem: "Enterprise learning was static and one-size-fits-all — failing to keep pace with fast-changing healthcare tech.",
     approach: [
       "Domain knowledge graph as the reasoning backbone",
@@ -186,11 +194,12 @@ export const works: Work[] = [
   {
     id: "gujarat-generative-ai-citizen-chatbot",
     title: "Gujarat Citizen Assistance Chatbot",
-    subtitle: "GenAI across 400+ public services",
+    // subtitle: "GenAI across 400+ public services",
+    thumbnail: "/projects/gujarat-ai-platform.png",
     category: "GovTech",
     year: "2024",
     client: "Government of Gujarat",
-    summary: "A state-scale GenAI assistant unifying access to over 400 citizen services — multilingual, grounded and secure.",
+    // summary: "A state-scale GenAI assistant unifying access to over 400 citizen services — multilingual, grounded and secure.",
     problem: "Citizens were navigating dozens of department websites to discover and use services they were entitled to.",
     approach: [
       "Unified service catalog and knowledge layer",
@@ -210,11 +219,12 @@ export const works: Work[] = [
   {
     id: "indian-air-force-techforce-ai",
     title: "TechForce AI for Indian Air Force",
-    subtitle: "Air-gapped GenAI for defense",
+    // subtitle: "Air-gapped GenAI for defense",
+    thumbnail: "/projects/techforce-ai-platform.png",
     category: "Defense",
     year: "2024",
     client: "Indian Air Force",
-    summary: "A secure, air-gapped GenAI platform powering document intelligence, database assistance and legacy code modernization.",
+    // summary: "A secure, air-gapped GenAI platform powering document intelligence, database assistance and legacy code modernization.",
     problem: "Defense workflows needed AI leverage without compromising sovereignty, security or air-gapped operating constraints.",
     approach: [
       "Fully on-prem, air-gapped LLM deployment",
@@ -234,11 +244,12 @@ export const works: Work[] = [
   {
     id: "classplus-ai-question-generation-platform",
     title: "Classplus AI Question Paper Engine",
-    subtitle: "Exam prep at scale",
+    // subtitle: "Exam prep at scale",
+    thumbnail: "/projects/classplus-ai-platform.png",
     category: "EdTech",
     year: "2024",
     client: "Classplus",
-    summary: "An AI platform that extracts, analyzes and generates exam-grade question papers — patterns, difficulty and topic coverage included.",
+    // summary: "An AI platform that extracts, analyzes and generates exam-grade question papers — patterns, difficulty and topic coverage included.",
     problem: "Educators on Classplus were spending hours building question papers manually, with inconsistent quality.",
     approach: [
       "Vision + Document Intelligence to digitize past papers",
@@ -258,11 +269,12 @@ export const works: Work[] = [
   {
     id: "nia-airport-flight-data-platform",
     title: "NIA Flight Data Platform",
-    subtitle: "Real-time data for a new airport",
+    // subtitle: "Real-time data for a new airport",
+    thumbnail: "/projects/nia-data-platform.png",
     category: "Aviation",
     year: "2023",
     client: "Noida International Airport",
-    summary: "A scalable, real-time flight data platform built on a lakehouse architecture with secure data products and APIs.",
+    // summary: "A scalable, real-time flight data platform built on a lakehouse architecture with secure data products and APIs.",
     problem: "A greenfield airport needed a unified, real-time data backbone for operations, partners and analytics from day one.",
     approach: [
       "Lakehouse foundation on Microsoft Fabric / Synapse",
@@ -282,11 +294,12 @@ export const works: Work[] = [
   {
     id: "bpcl-generative-ai-chatbot",
     title: "BPCL Customer Assistance Chatbot",
-    subtitle: "Voice + GenAI for energy customers",
+    // subtitle: "Voice + GenAI for energy customers",
+    thumbnail: "/projects/bpcl-ai-platform.png",
     category: "Energy",
     year: "2024",
     client: "Bharat Petroleum (BPCL)",
-    summary: "A multilingual, voice-enabled GenAI chatbot automating customer queries, SOP-grounded responses and call center escalations.",
+    // summary: "A multilingual, voice-enabled GenAI chatbot automating customer queries, SOP-grounded responses and call center escalations.",
     problem: "Call centers were overwhelmed by repetitive customer questions with inconsistent answer quality across channels.",
     approach: [
       "Voice + chat unified GenAI assistant",
@@ -303,30 +316,31 @@ export const works: Work[] = [
     gradient: "from-orange-500 via-red-500 to-rose-600",
     tags: ["Voice", "GenAI", "Energy"],
   },
-  {
-    id: "bpcl-lpgnext-analytics-data-platform",
-    title: "BPCL LPGNext Analytics Platform",
-    subtitle: "Azure data platform PoC for LPG modernization",
-    category: "Enterprise AI",
-    year: "2023",
-    client: "Bharat Petroleum (BPCL)",
-    summary: "An Azure-based analytics data platform PoC unifying LPGNext and SAP Hybris data into an analytics-ready lake and warehouse foundation.",
-    problem: "BPCL's migration to SAP Hybris on Azure was bottlenecked by fragmented, on-prem LPG data with no unified analytics layer.",
-    approach: [
-      "Ingestion of LPGNext and SAP Hybris data into Azure",
-      "Standardized data lake + warehouse design on Microsoft stack",
-      "KPI alignment across business teams",
-      "Governed delivery with traceability and validation",
-    ],
-    impact: [
-      "Foundation for BPCL's enterprise analytics future",
-      "Cleaner, validated data feeds into SAP Hybris",
-      "Reduced manual reporting effort",
-    ],
-    stack: ["Azure Data Lake", "Synapse", "SQL", "Power BI"],
-    gradient: "from-rose-500 via-orange-500 to-amber-400",
-    tags: ["Data Platform", "Analytics", "Azure"],
-  },
+  // {
+  //   id: "bpcl-lpgnext-analytics-data-platform",
+  //   title: "BPCL LPGNext Analytics Platform",
+  //   // subtitle: "Azure data platform PoC for LPG modernization",
+  //   thumbnail: "/projects/bpcl-lpgnext-analytics.png",
+  //   category: "Enterprise AI",
+  //   year: "2023",
+  //   client: "Bharat Petroleum (BPCL)",
+  //   // summary: "An Azure-based analytics data platform PoC unifying LPGNext and SAP Hybris data into an analytics-ready lake and warehouse foundation.",
+  //   problem: "BPCL's migration to SAP Hybris on Azure was bottlenecked by fragmented, on-prem LPG data with no unified analytics layer.",
+  //   approach: [
+  //     "Ingestion of LPGNext and SAP Hybris data into Azure",
+  //     "Standardized data lake + warehouse design on Microsoft stack",
+  //     "KPI alignment across business teams",
+  //     "Governed delivery with traceability and validation",
+  //   ],
+  //   impact: [
+  //     "Foundation for BPCL's enterprise analytics future",
+  //     "Cleaner, validated data feeds into SAP Hybris",
+  //     "Reduced manual reporting effort",
+  //   ],
+  //   stack: ["Azure Data Lake", "Synapse", "SQL", "Power BI"],
+  //   gradient: "from-rose-500 via-orange-500 to-amber-400",
+  //   tags: ["Data Platform", "Analytics", "Azure"],
+  // },
 ];
 
 export const workCategories = ["All", "Enterprise AI", "GovTech", "EdTech", "Energy", "Defense", "Aviation", "HealthTech"] as const;

@@ -8,7 +8,7 @@ const workshops = [
     title: "Microsoft",
     location: "Noida",
     description: "AI Advancement for Indian Air Force",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
+    image: "assets/images/microsoft3.jpeg",
     color: "text-blue-500",
   },
   {
@@ -16,7 +16,7 @@ const workshops = [
     title: "NASSCOM SME Confluence",
     location: "Delhi",
     description: "SME Confluence 2024 Delhi",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
+    image: "assets/images/nasscom.jfif",
     color: "text-purple-500",
   },
   {
@@ -24,7 +24,7 @@ const workshops = [
     title: "Microsoft",
     location: "Gurgaon",
     description: "Partner Summit for Data and AI",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
+    image: "assets/images/microsoft2.jfif",
     color: "text-indigo-500",
   },
   {
@@ -32,7 +32,7 @@ const workshops = [
     title: "GL Bajaj",
     location: "Greater Noida",
     description: "Data & AI Workshop",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
+    image: "assets/images/glbajaj.png",
     color: "text-emerald-500",
   },
   {
@@ -40,7 +40,7 @@ const workshops = [
     title: "Sharda University",
     location: "Greater Noida",
     description: "Data & AI Workshop",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=800",
+    image: "/assets/images/sharda.png",
     color: "text-emerald-500",
   },
 ];

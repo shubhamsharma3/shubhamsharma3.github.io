@@ -44,13 +44,17 @@ export const Experience = () => (
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, delay: idx * 0.1 }}
-                className="relative flex flex-col md:flex-row md:items-start group"
+                className="relative grid gap-6 md:grid-cols-[120px_minmax(320px,1fr)_minmax(360px,1fr)] items-start group"
               >
-                {/* node */}
-                <div className="absolute left-8 top-0 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-primary shadow-[0_0_15px_rgba(var(--primary),0.5)] md:left-1/2 md:top-6 transition-all duration-300 group-hover:scale-150 group-hover:shadow-[0_0_25px_rgba(var(--primary),0.8)]" />
+                {/* Year Label */}
+                <div className="flex items-start">
+                  <span className="font-display text-2xl font-bold text-muted-foreground/50 tracking-widest transition-colors group-hover:text-foreground">
+                    {displayYear}
+                  </span>
+                </div>
 
-                {/* Left Side: Role & Company */}
-                <div className="pl-16 pr-4 pt-0 md:w-1/2 md:pr-16 md:pl-0 md:text-right flex flex-col md:items-end">
+                {/* Center Column: Role & Company */}
+                <div className="flex flex-col items-start md:pr-8">
                   <h3 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">
                     {it.role}
                   </h3>
@@ -62,34 +66,23 @@ export const Experience = () => (
                   </div>
                 </div>
 
-                {/* Year Label (Desktop) */}
-                <div className="hidden md:flex absolute left-1/2 top-5 -translate-x-[120px] items-center justify-end w-[80px]">
-                  <span className="font-display text-2xl font-bold text-muted-foreground/50 tracking-widest transition-colors group-hover:text-foreground">
-                    {displayYear}
-                  </span>
-                </div>
-
-                {/* Year Label (Mobile) */}
-                <div className="pl-16 mt-2 mb-4 md:hidden">
-                  <span className="font-display text-xl font-bold text-muted-foreground tracking-widest">
-                    {displayYear}
-                  </span>
-                </div>
-
-                {/* Right Side: Description */}
-                <div className="pl-16 md:w-1/2 md:pl-16 md:pt-6 text-muted-foreground text-base leading-relaxed">
+                {/* Right Column: Description */}
+                <div className="text-muted-foreground text-base leading-relaxed">
                   <p>{it.desc}</p>
                   {it.highlights && (
                     <ul className="mt-4 space-y-2">
-                      {it.highlights.slice(0, 3).map((h) => (
+                      {it.highlights.slice(0, 5).map((h) => (
                         <li key={h} className="flex gap-3 text-sm text-foreground/80 items-start">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" /> 
+                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
                           <span>{h}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                 </div>
+
+                {/* Timeline node */}
+                <div className="absolute left-1/2 top-5 h-4 w-4 -translate-x-1/2 rounded-full border-2 border-background bg-primary shadow-[0_0_15px_rgba(var(--primary),0.5)] transition-all duration-300 group-hover:scale-150 group-hover:shadow-[0_0_25px_rgba(var(--primary),0.8)]" />
               </motion.div>
             );
           })}
@@ -133,3 +126,4 @@ export const Experience = () => (
     </div>
   </section>
 );
+
